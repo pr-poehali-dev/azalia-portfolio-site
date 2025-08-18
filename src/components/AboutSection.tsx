@@ -8,7 +8,7 @@ interface AboutSectionProps {
 const AboutSection = ({ filmStrip }: AboutSectionProps) => {
   return (
     <section id="about" className="py-16 px-4 relative bg-cream text-forest">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5">
         <div className="max-w-4xl mx-auto">
           {/* Decorative line before section */}
           <DecorativeLines type="wavy" className="mb-8 opacity-70" />
@@ -30,10 +30,9 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
               <DecorativeLines type="curved" className="mb-6 opacity-60" />
               
               <div className="prose prose-lg text-center">
-                <p className="text-foreground/90 leading-relaxed lowercase">
-                  привет! я Азалия — снимаю жизнь такой, как она есть: тёплой, честной, красивой в мелочах. 
-                  люблю атмосферу ретритов, праздников, семейных встреч и тихих будней.
-                </p>
+                <p className="text-foreground/90 leading-relaxed lowercase text-center">привет, я Азалия! я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры
+
+больше 3-х лет я создаю атмосферные видео на youtube, участвую в мероприятиях в качестве лайф-фотографа и помогаю сохранить теплые воспоминания и эмоции о важных событиях нашей жизни. </p>
                 <p className="text-foreground/90 leading-relaxed mt-4 lowercase">
                   делаю живые фотографии и видео без тяжёлой обработки, отдаю быстро и бережно. 
                   здесь вы поймёте мой стиль и сразу увидите, подходит ли он вам.
