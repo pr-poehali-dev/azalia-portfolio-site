@@ -5,6 +5,8 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -18,6 +20,9 @@ const Index = () => {
       const sections = ['hero', 'about', 'services', 'vlog', 'collaboration', 'reviews', 'support', 'contacts'];
       const scrollPos = window.scrollY + 100;
 
+      // Show/hide scroll to top button
+      setShowScrollTop(window.scrollY > 400);
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element && scrollPos >= element.offsetTop && scrollPos < element.offsetTop + element.offsetHeight) {
@@ -30,6 +35,10 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const navItems = [
     { id: 'about', label: 'обо мне' },
@@ -57,6 +66,7 @@ const Index = () => {
               <h1 className="text-2xl font-caveat font-bold text-accent">@azaluk</h1>
             </div>
             
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-6">
               {navItems.map((item) => (
                 <button
@@ -71,14 +81,49 @@ const Index = () => {
               ))}
             </nav>
 
-            <Button 
-              onClick={() => window.open('https://t.me/azaluk', '_blank')}
-              className="bg-accent text-accent-foreground hover:bg-accent/80 p-3"
-              size="icon"
-            >
-              <Icon name="Send" size={20} />
-            </Button>
+            <div className="flex items-center space-x-2">
+              {/* Mobile Menu Button */}
+              <Button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden bg-transparent text-foreground hover:bg-accent/20 p-3"
+                size="icon"
+                variant="ghost"
+              >
+                <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={20} />
+              </Button>
+
+              {/* Telegram Button */}
+              <Button 
+                onClick={() => window.open('https://t.me/azaluk', '_blank')}
+                className="bg-accent text-accent-foreground hover:bg-accent/80 p-3"
+                size="icon"
+              >
+                <Icon name="Send" size={20} />
+              </Button>
+            </div>
           </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden mt-4 py-4 border-t border-border">
+              <nav className="flex flex-col space-y-3">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      scrollToSection(item.id);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`text-left text-sm transition-colors hover:text-accent ${
+                      activeSection === item.id ? 'text-accent' : 'text-foreground'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
@@ -451,6 +496,17 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <Button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 bg-accent text-accent-foreground hover:bg-accent/80 p-3 rounded-full shadow-lg"
+          size="icon"
+        >
+          <Icon name="ArrowUp" size={20} />
+        </Button>
+      )}
     </div>
   );
 };
