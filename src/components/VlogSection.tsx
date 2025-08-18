@@ -63,7 +63,7 @@ const VlogSection = () => {
             <DecorativeLines type="curved" className="mb-8 opacity-40" />
             
             {/* CTA Button */}
-            <div className="text-center">
+            <div className="flex justify-center">
               <Button 
                 size="lg"
                 className="bg-cream text-forest hover:bg-cream/90 rounded-full px-12 py-4 text-lg font-semibold uppercase tracking-wide shadow-lg"
