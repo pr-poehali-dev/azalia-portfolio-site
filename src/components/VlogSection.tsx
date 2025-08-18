@@ -7,7 +7,7 @@ const VlogSection = () => {
     <section id="vlog" className="py-16 px-4 relative">
       <div className="container mx-auto max-w-4xl px-0">
         {/* Mobile-optimized layout */}
-        <div className="text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden" style={{ backgroundColor: '#3d2f24' }}>
+        <div className="bg-forest text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden">
           {/* Decorative background pattern */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-10 right-10 w-20 h-20 border border-cream/20 rounded-full"></div>
