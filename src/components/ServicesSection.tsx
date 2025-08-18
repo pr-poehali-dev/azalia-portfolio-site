@@ -36,14 +36,14 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 px-4 bg-muted/30 relative">
+    <section id="services" className="py-16 px-4 relative" style={{ backgroundColor: '#2d3e2f' }}>
       <div className="container mx-auto">
         {/* Decorative elements for mobile */}
         <div className="md:hidden mb-8">
           <DecorativeLines type="wavy" className="mb-4 opacity-60" />
         </div>
         
-        <h2 className="text-4xl font-montserrat font-bold text-center uppercase my-5 text-amber-50">услуги</h2>
+        <h2 className="text-4xl font-montserrat font-bold text-center uppercase my-5 text-cream">услуги</h2>
         
         {/* Mobile film strip */}
         <div className="md:hidden flex justify-center mb-8">
