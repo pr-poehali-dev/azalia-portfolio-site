@@ -8,7 +8,7 @@ interface AboutSectionProps {
 const AboutSection = ({ filmStrip }: AboutSectionProps) => {
   return (
     <section id="about" className="py-16 px-4 relative bg-cream text-forest">
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-[30px]">
         <div className="max-w-4xl mx-auto">
           {/* Decorative line before section */}
           <DecorativeLines type="wavy" className="mb-8 opacity-70" />
@@ -40,20 +40,19 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
                 <img 
                   src="https://cdn.poehali.dev/files/b103f201-04ae-48c1-927e-818bdae7d6f4.jpg" 
                   alt="Фото автора"
-                  className="w-full max-w-sm mx-auto block rounded-lg shadow-lg object-cover aspect-[3/4]"
+                  className="w-full max-w-sm mx-auto block shadow-lg object-cover aspect-[3/4] rounded-2xl"
                 />
               </div>
               
               <DecorativeLines type="curved" className="mb-6 opacity-60" />
               
               <div className="prose prose-lg text-center">
-                <p className="text-foreground/90 leading-relaxed lowercase text-center my-0.5">привет, я Азалия! я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры
+                <p className="text-foreground/90 leading-relaxed lowercase text-center my-0.5">я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры.
 
-больше 3-х лет я создаю атмосферные видео на youtube, участвую в мероприятиях в качестве лайф-фотографа и помогаю сохранить теплые воспоминания и эмоции о важных событиях нашей жизни. </p>
-                <p className="text-foreground/90 leading-relaxed mt-4 lowercase">
-                  делаю живые фотографии и видео без тяжёлой обработки, отдаю быстро и бережно. 
-                  здесь вы поймёте мой стиль и сразу увидите, подходит ли он вам.
-                </p>
+ больше 3-х лет я создаю атмосферные видео на youtube, участвую в мероприятиях в качестве лайф-фотографа и помогаю сохранить теплые воспоминания и эмоции о важных событиях нашей жизни.</p>
+                <p className="text-foreground/90 leading-relaxed mt-4 lowercase">делаю живые фотографии и видео без тяжёлой обработки, отдаю быстро и бережно. здесь вы поймёте мой стиль и сразу увидите, подходит ли он вам.
+
+</p>
               </div>
               
               <DecorativeLines type="dashed" className="my-6 opacity-50" />
