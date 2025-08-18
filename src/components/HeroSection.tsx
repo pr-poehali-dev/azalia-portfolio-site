@@ -7,46 +7,33 @@ interface HeroSectionProps {
 
 const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
   return (
-    <section id="hero" className="pt-24 pb-16 px-4">
-      <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <div className="relative mb-8">
-            <img
-              src="https://cdn.poehali.dev/files/9b170a93-eea7-476b-8160-d67784a3a587.jpg"
-              alt="Hero background"
-              className="w-full h-96 object-cover rounded-3xl opacity-80"
-            />
-            <div className="absolute inset-0 bg-background/40 rounded-3xl flex items-center justify-center">
-              <div className="text-center">
-                <h1 className="md:text-6xl font-montserrat font-bold mb-6 leading-tight uppercase text-xl text-orange-50">
-                  сохраняю живые<br />моменты красиво<br />и просто
-                </h1>
-                <p className="md:text-2xl text-cream/90 mb-8 max-w-3xl mx-auto lowercase text-left text-lg">привет, я Азалия! 
-я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры</p>
-                <div className="flex justify-center">
-                  <Button 
-                    size="lg"
-                    onClick={() => scrollToSection('services')}
-                    className="bg-cream text-forest hover:bg-cream/90 rounded-full px-8"
-                  >предложить сотрудничество</Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Film Strip */}
-        <div className="overflow-hidden">
-          <div className="flex space-x-4 animate-pulse">
-            {filmStrip.map((src, index) => (
-              <div key={index} className="flex-shrink-0">
-                <img
-                  src={src}
-                  alt={`Frame ${index + 1}`}
-                  className="w-24 h-16 object-cover rounded-lg opacity-70 hover:opacity-100 transition-opacity"
-                />
-              </div>
-            ))}
+    <section 
+      id="hero" 
+      className="min-h-screen flex items-center justify-center relative"
+      style={{
+        backgroundImage: 'url(https://cdn.poehali.dev/files/59c859bd-6d48-487f-95c1-4648d29b1d96.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-6xl font-montserrat font-bold mb-6 text-white leading-tight uppercase">
+            сохраняю живые<br />моменты красиво<br />и просто
+          </h1>
+          <p className="text-lg md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto lowercase">
+            живая фото- и видеосъёмка, монтаж и влоги под ключ — без тяжёлой постановки и долгой ретуши
+          </p>
+          <div className="flex justify-center">
+            <Button 
+              size="lg"
+              onClick={() => scrollToSection('services')}
+              className="bg-white/90 text-forest hover:bg-white rounded-full px-8 backdrop-blur-sm"
+            >
+              смотреть примеры
+            </Button>
           </div>
         </div>
       </div>
