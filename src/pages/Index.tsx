@@ -32,13 +32,10 @@ const Index = () => {
   }, []);
 
   const navItems = [
-    { id: 'about', label: 'Обо мне' },
-    { id: 'services', label: 'Услуги' },
-    { id: 'vlog', label: 'Влог под ключ' },
-    { id: 'collaboration', label: 'Сотрудничество' },
-    { id: 'reviews', label: 'Отзывы' },
-    { id: 'support', label: 'Поддержать' },
-    { id: 'contacts', label: 'Контакты' }
+    { id: 'about', label: 'обо мне' },
+    { id: 'services', label: 'услуги' },
+    { id: 'collaboration', label: 'сотрудничество' },
+    { id: 'support', label: 'поддержать' }
   ];
 
   const filmStrip = [
@@ -56,17 +53,16 @@ const Index = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <h1 className="text-2xl font-caveat font-bold text-accent">Азалия</h1>
-              <span className="text-sm text-muted-foreground">@azaluk</span>
+            <div className="flex items-center">
+              <h1 className="text-2xl font-caveat font-bold text-accent">@azaluk</h1>
             </div>
             
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm transition-colors hover:text-accent ${
+                  className={`text-sm transition-colors hover:text-accent whitespace-nowrap ${
                     activeSection === item.id ? 'text-accent' : 'text-foreground'
                   }`}
                 >
@@ -77,9 +73,10 @@ const Index = () => {
 
             <Button 
               onClick={() => window.open('https://t.me/azaluk', '_blank')}
-              className="bg-accent text-accent-foreground hover:bg-accent/80"
+              className="bg-accent text-accent-foreground hover:bg-accent/80 text-xs lg:text-sm px-3 lg:px-4"
             >
-              Написать в Telegram
+              <span className="hidden sm:inline">написать в telegram</span>
+              <span className="sm:hidden">tg</span>
             </Button>
           </div>
         </div>
