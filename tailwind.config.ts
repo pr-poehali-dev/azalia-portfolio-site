@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -61,7 +61,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Азалия vintage colors
+				'forest': '#2D4A2B',
+				'earth': '#8B7355', 
+				'cream': '#F3EDE4',
+				'charcoal': '#F5F1E8',
+				'copper': '#B07E5E',
+				'gold': '#C9B27D'
+			},
+			fontFamily: {
+				'cormorant': ['Cormorant Garamond', 'serif'],
+				'inter': ['Inter', 'sans-serif'],
+				'caveat': ['Caveat', 'cursive']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +96,37 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'film-roll': {
+					'0%': {
+						transform: 'translateX(0)'
+					},
+					'100%': {
+						transform: 'translateX(-50%)'
+					}
+				},
+				'grain': {
+					'0%': { opacity: '0.02' },
+					'50%': { opacity: '0.05' },
+					'100%': { opacity: '0.02' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.6s ease-out',
+				'film-roll': 'film-roll 20s linear infinite',
+				'grain': 'grain 0.5s ease-in-out infinite alternate'
 			}
 		}
 	},
