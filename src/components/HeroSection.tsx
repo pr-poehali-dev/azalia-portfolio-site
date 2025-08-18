@@ -27,11 +27,10 @@ const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
                 <div className="flex justify-center">
                   <Button 
                     size="lg"
-                    variant="outline"
-                    onClick={() => window.open('https://t.me/azaluk', '_blank')}
-                    className="border-cream text-cream hover:bg-cream hover:text-forest rounded-full px-8"
+                    onClick={() => scrollToSection('services')}
+                    className="bg-cream text-forest hover:bg-cream/90 rounded-full px-8"
                   >
-                    связаться в tg
+                    смотреть примеры
                   </Button>
                 </div>
               </div>
