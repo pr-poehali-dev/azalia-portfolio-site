@@ -73,10 +73,10 @@ const Index = () => {
 
             <Button 
               onClick={() => window.open('https://t.me/azaluk', '_blank')}
-              className="bg-accent text-accent-foreground hover:bg-accent/80 text-xs lg:text-sm px-3 lg:px-4"
+              className="bg-accent text-accent-foreground hover:bg-accent/80 p-3"
+              size="icon"
             >
-              <span className="hidden sm:inline">написать в telegram</span>
-              <span className="sm:hidden">tg</span>
+              <Icon name="Send" size={20} />
             </Button>
           </div>
         </div>
