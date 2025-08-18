@@ -7,7 +7,7 @@ interface AboutSectionProps {
 
 const AboutSection = ({ filmStrip }: AboutSectionProps) => {
   return (
-    <section id="about" className="py-16 px-4 relative">
+    <section id="about" className="py-16 px-4 relative bg-cream text-forest">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           {/* Decorative line before section */}

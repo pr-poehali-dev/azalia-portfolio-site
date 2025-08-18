@@ -35,7 +35,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
   return (
     <>
       {/* Collaboration Section */}
-      <section id="collaboration" className="py-16 px-4 bg-muted/30">
+      <section id="collaboration" className="py-16 px-4 bg-cream text-forest">
         <div className="container mx-auto max-w-4xl text-center px-0">
           <h2 className="font-montserrat font-bold text-accent uppercase my-0 text-3xl">сотрудничество</h2>
           <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
@@ -77,7 +77,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       </section>
 
       {/* Support Section */}
-      <section id="support" className="py-16 px-4 bg-muted/30">
+      <section id="support" className="py-16 px-4 bg-cream text-forest">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase">поддержать проект</h2>
           <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
