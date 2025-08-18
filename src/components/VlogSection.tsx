@@ -22,7 +22,7 @@ const VlogSection = () => {
             <DecorativeLines type="wavy" className="mb-8 opacity-40" />
             
             <div className="text-lg md:text-xl leading-relaxed mb-10 font-light">
-              <p className="lowercase">я приезжаю на ваше событие (свадьба, день рождения, открытие пространства, вечеринка), снимаю живую атмосферу, пару тёплых интервью и за 7 дней собираю 8–12-минутный влог-фильм, который хочется пересматривать.</p>
+              <p className="lowercase">я приезжаю на ваше событие (свадьба, день рождения, открытие пространства, вечеринка), снимаю живую атмосферу, пару тёплых интервью и за 7 дней собираю атмосферный 8–12-минутный влог-фильм по заранее согласованному ТЗ</p>
             </div>
             
             {/* Service features */}
@@ -38,14 +38,14 @@ const VlogSection = () => {
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Clock" size={24} className="text-cream" />
                 </div>
-                <span className="font-medium lowercase text-base">точная стоимость рассчитывается исходя из продолжительности мероприятия и сложности монтажа</span>
+                <span className="font-medium lowercase text-base">точная стоимость рассчитывается исходя из продолжительности мероприятия и деталей-пожеланий заказчика</span>
               </div>
               
               <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 px-[5px] py-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Link" size={24} className="text-cream" />
                 </div>
-                <span className="font-medium lowercase text-base">youtube-ссылка + исходники на диске</span>
+                <span className="font-medium lowercase text-base">вы получите youtube-ссылку с роликом + все материалы на диске</span>
               </div>
             </div>
             
