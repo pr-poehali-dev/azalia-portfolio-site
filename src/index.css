@@ -7,32 +7,32 @@
 @layer base {
   :root {
     --background: 42 19% 95%;
-    --foreground: 24 26% 9%;
+    --foreground: 30 15% 25%;
 
     --card: 42 19% 90%;
-    --card-foreground: 24 26% 9%;
+    --card-foreground: 30 15% 25%;
 
     --popover: 42 19% 95%;
-    --popover-foreground: 24 26% 9%;
+    --popover-foreground: 30 15% 25%;
 
-    --primary: 24 26% 9%;
+    --primary: 30 15% 25%;
     --primary-foreground: 42 19% 95%;
 
-    --secondary: 31 28% 60%;
-    --secondary-foreground: 24 26% 9%;
+    --secondary: 30 20% 45%;
+    --secondary-foreground: 30 15% 25%;
 
     --muted: 42 19% 85%;
-    --muted-foreground: 31 20% 40%;
+    --muted-foreground: 30 20% 35%;
 
-    --accent: 24 26% 20%;
+    --accent: 30 15% 25%;
     --accent-foreground: 42 19% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 31 20% 80%;
-    --input: 31 20% 80%;
-    --ring: 24 26% 20%;
+    --border: 30 15% 75%;
+    --input: 30 15% 75%;
+    --ring: 30 15% 25%;
 
     --radius: 1rem;
 
@@ -127,8 +127,8 @@
 
   .vintage-card {
     background: linear-gradient(145deg, #f5f1e8, #e8e1d8);
-    border: 1px solid rgba(139, 115, 85, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid #5a453a;
+    box-shadow: 0 8px 32px rgba(90, 69, 58, 0.2);
   }
 
   .story-link {
@@ -144,7 +144,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #2d4a2b;
+    background-color: #5a453a;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }

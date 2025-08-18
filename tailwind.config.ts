@@ -62,13 +62,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Азалия vintage colors (inverted)
-				'forest': '#D2B5D4', // был темно-зеленый, стал светло-розовый
-				'earth': '#748CAA', // был коричневый, стал синий
-				'cream': '#0C121B', // был кремовый, стал тёмный
-				'charcoal': '#0A0E17', // был светлый, стал очень тёмный
-				'copper': '#4F81A1', // был медный, стал синий
-				'gold': '#364D82' // был золотой, стал синий
+				// Азалия brown palette
+				'forest': '#5a453a', // Коричневый основной
+				'earth': '#6b4f42', // Коричневый светлый
+				'cream': '#f5f1e8', // Кремовый (оставляем светлый)
+				'charcoal': '#4a3530', // Тёмно-коричневый
+				'copper': '#7a5d4e', // Медно-коричневый
+				'gold': '#8b6d5a' // Золотисто-коричневый
 			},
 			fontFamily: {
 				'montserrat': ['Montserrat', 'sans-serif'],
