@@ -18,7 +18,7 @@ const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
             />
             <div className="absolute inset-0 bg-background/40 rounded-3xl flex items-center justify-center">
               <div className="text-center">
-                <h1 className="text-5xl md:text-6xl font-montserrat font-bold mb-6 text-cream leading-tight uppercase">
+                <h1 className="md:text-6xl font-montserrat font-bold mb-6 leading-tight uppercase text-xl text-orange-50">
                   сохраняю живые<br />моменты красиво<br />и просто
                 </h1>
                 <p className="text-xl md:text-2xl text-cream/90 mb-8 max-w-3xl mx-auto lowercase">
