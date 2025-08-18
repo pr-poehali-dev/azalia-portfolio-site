@@ -19,11 +19,28 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
               <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase text-center">обо мне</h2>
               
               {/* Vertical film strip for mobile */}
-              <div className="flex justify-center mb-6">
-                <FilmStrip 
-                  images={filmStrip.slice(0, 3)} 
-                  orientation="vertical"
-                  className="w-32"
+              <div className="relative mb-6">
+                {/* Film perforation on sides */}
+                <div className="absolute left-0 top-0 bottom-0 w-8 bg-forest opacity-20 z-10">
+                  <div className="flex flex-col justify-evenly h-full">
+                    {Array(8).fill(0).map((_, i) => (
+                      <div key={i} className="w-4 h-4 bg-forest rounded-full mx-auto"></div>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute right-0 top-0 bottom-0 w-8 bg-forest opacity-20 z-10">
+                  <div className="flex flex-col justify-evenly h-full">
+                    {Array(8).fill(0).map((_, i) => (
+                      <div key={i} className="w-4 h-4 bg-forest rounded-full mx-auto"></div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Main photo */}
+                <img 
+                  src="https://cdn.poehali.dev/files/b103f201-04ae-48c1-927e-818bdae7d6f4.jpg" 
+                  alt="Фото автора"
+                  className="w-full max-w-sm mx-auto block rounded-lg shadow-lg object-cover aspect-[3/4]"
                 />
               </div>
               
