@@ -62,7 +62,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-forest text-cream">
       <Header
         navItems={navItems}
         activeSection={activeSection}
