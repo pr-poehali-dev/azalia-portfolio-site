@@ -18,11 +18,11 @@ const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
             />
             <div className="absolute inset-0 bg-background/40 rounded-3xl flex items-center justify-center">
               <div className="text-center">
-                <h1 className="text-5xl md:text-6xl font-cormorant font-bold mb-6 text-cream leading-tight">
-                  Сохраняю живые<br />моменты красиво<br />и просто
+                <h1 className="text-5xl md:text-6xl font-montserrat font-bold mb-6 text-cream leading-tight uppercase">
+                  сохраняю живые<br />моменты красиво<br />и просто
                 </h1>
-                <p className="text-xl md:text-2xl text-cream/90 mb-8 max-w-3xl mx-auto">
-                  Живая фото- и видеосъёмка, монтаж и влоги под ключ — без тяжёлой постановки и долгой ретуши
+                <p className="text-xl md:text-2xl text-cream/90 mb-8 max-w-3xl mx-auto lowercase">
+                  живая фото- и видеосъёмка, монтаж и влоги под ключ — без тяжёлой постановки и долгой ретуши
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
@@ -30,7 +30,7 @@ const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
                     onClick={() => scrollToSection('services')}
                     className="bg-cream text-forest hover:bg-cream/90 rounded-full px-8"
                   >
-                    Смотреть примеры
+                    смотреть примеры
                   </Button>
                   <Button 
                     size="lg"
@@ -38,7 +38,7 @@ const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
                     onClick={() => window.open('https://t.me/azaluk', '_blank')}
                     className="border-cream text-cream hover:bg-cream hover:text-forest rounded-full px-8"
                   >
-                    Связаться в TG
+                    связаться в tg
                   </Button>
                 </div>
               </div>

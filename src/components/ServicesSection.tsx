@@ -30,7 +30,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-16 px-4 bg-muted/30">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-cormorant font-bold text-center mb-12 text-accent">Услуги</h2>
+        <h2 className="text-4xl font-montserrat font-bold text-center mb-12 text-accent uppercase">услуги</h2>
         
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {services.map((service, index) => (
@@ -60,8 +60,8 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="text-center text-sm text-muted-foreground">
-          Точная смета — в TG после 3–5 вопросов (длительность, локация, срок)
+        <div className="text-center text-sm text-muted-foreground lowercase">
+          точная смета — в tg после 3–5 вопросов (длительность, локация, срок)
         </div>
       </div>
     </section>

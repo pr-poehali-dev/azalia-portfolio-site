@@ -71,7 +71,7 @@ export default {
 				'gold': '#C9B27D'
 			},
 			fontFamily: {
-				'cormorant': ['Cormorant Garamond', 'serif'],
+				'montserrat': ['Montserrat', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
 				'caveat': ['Caveat', 'cursive']
 			},

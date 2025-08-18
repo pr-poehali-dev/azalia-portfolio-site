@@ -21,7 +21,7 @@ const Header = ({
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <h1 className="text-2xl font-caveat font-bold text-accent">@azaluk</h1>
+            <h1 className="text-2xl font-montserrat font-bold text-accent">@azaluk</h1>
           </div>
           
           {/* Desktop Navigation */}

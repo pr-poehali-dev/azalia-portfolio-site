@@ -9,27 +9,27 @@ interface OtherSectionsProps {
 const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
   const reviews = [
     {
-      text: 'Ваши влоги — как тёплое одеяло. После просмотра хочется жить медленнее. Спасибо!',
-      author: 'Наталья',
+      text: 'ваши влоги — как тёплое одеяло. после просмотра хочется жить медленнее. спасибо!',
+      author: 'наталья',
       role: 'зрительница'
     },
     {
-      text: 'Фото со свадьбы — будто маленький фильм о нас. Живые лица, свет, смех — восторг!',
-      author: 'Антон и Мария',
+      text: 'фото со свадьбы — будто маленький фильм о нас. живые лица, свет, смех — восторг!',
+      author: 'антон и мария',
       role: 'молодожёны'
     },
     {
-      text: 'Влог об открытии студии передал атмосферу до мурашек. Гости пересылают друзьям!',
+      text: 'влог об открытии студии передал атмосферу до мурашек. гости пересылают друзьям!',
       author: 'команда пространства',
       role: 'клиенты'
     }
   ];
 
   const socialLinks = [
-    { icon: 'MessageCircle', label: 'Telegram', url: 'https://t.me/azaluk' },
-    { icon: 'Youtube', label: 'YouTube', url: 'https://youtube.com/@azaluk' },
-    { icon: 'Instagram', label: 'Instagram', url: '#' },
-    { icon: 'Heart', label: 'VK', url: '#' }
+    { icon: 'MessageCircle', label: 'telegram', url: 'https://t.me/azaluk' },
+    { icon: 'Youtube', label: 'youtube', url: 'https://youtube.com/@azaluk' },
+    { icon: 'Instagram', label: 'instagram', url: '#' },
+    { icon: 'Heart', label: 'vk', url: '#' }
   ];
 
   return (
@@ -37,18 +37,18 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       {/* Collaboration Section */}
       <section id="collaboration" className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-cormorant font-bold mb-6 text-accent">Сотрудничество</h2>
-          <p className="text-lg leading-relaxed mb-8 text-muted-foreground">
-            Открыта к тёплым коллаборациям и аккуратным интеграциям — только то, что резонирует с атмосферой канала 
-            (slow life, велнесс, творчество, места силы, уютные бренды). Форматы: интеграции во влоги, съёмка контента, 
-            совместные проекты. Напишите, придумаем красиво.
+          <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase">сотрудничество</h2>
+          <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
+            открыта к тёплым коллаборациям и аккуратным интеграциям — только то, что резонирует с атмосферой канала 
+            (slow life, велнесс, творчество, места силы, уютные бренды). форматы: интеграции во влоги, съёмка контента, 
+            совместные проекты. напишите, придумаем красиво.
           </p>
           <Button 
             size="lg"
             className="bg-accent text-accent-foreground hover:bg-accent/80"
             onClick={() => window.open('https://t.me/azaluk', '_blank')}
           >
-            Обсудить коллаборацию
+            обсудить коллаборацию
           </Button>
         </div>
       </section>
