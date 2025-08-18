@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import FilmStrip from './FilmStrip';
+import DecorativeLines from './DecorativeLines';
 
 const ServicesSection = () => {
   const services = [
@@ -27,10 +29,30 @@ const ServicesSection = () => {
     }
   ];
 
+  // Создаём фейковые изображения для киноленты
+  const serviceImages = [
+    "https://cdn.poehali.dev/files/9b170a93-eea7-476b-8160-d67784a3a587.jpg",
+    "https://cdn.poehali.dev/files/59c859bd-6d48-487f-95c1-4648d29b1d96.png"
+  ];
+
   return (
-    <section id="services" className="py-16 px-4 bg-muted/30">
+    <section id="services" className="py-16 px-4 bg-muted/30 relative">
       <div className="container mx-auto">
+        {/* Decorative elements for mobile */}
+        <div className="md:hidden mb-8">
+          <DecorativeLines type="wavy" className="mb-4 opacity-60" />
+        </div>
+        
         <h2 className="text-4xl font-montserrat font-bold text-center mb-12 text-accent uppercase">услуги</h2>
+        
+        {/* Mobile film strip */}
+        <div className="md:hidden flex justify-center mb-8">
+          <FilmStrip 
+            images={serviceImages} 
+            orientation="horizontal" 
+            className="max-w-xs"
+          />
+        </div>
         
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {services.map((service, index) => (
@@ -58,6 +80,15 @@ const ServicesSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        
+        {/* Decorative lines between sections */}
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+          <DecorativeLines type="curved" className="w-full md:w-1/3 opacity-50" />
+          <div className="text-center text-sm text-muted-foreground lowercase">
+            точная смета — в tg после 3–5 вопросов (длительность, локация, срок)
+          </div>
+          <DecorativeLines type="curved" className="w-full md:w-1/3 opacity-50 rotate-180" />
         </div>
 
         <div className="text-center text-sm text-muted-foreground lowercase">
