@@ -16,7 +16,7 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Mobile-first layout with film strip */}
             <div className="md:hidden">
-              <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase text-center">обо мне</h2>
+              <h2 className="font-montserrat font-bold text-accent uppercase text-center text-xl my-[5px]">привет, я азалия!</h2>
               
               {/* Vertical film strip for mobile */}
               <div className="relative mb-6">
@@ -47,7 +47,7 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
               <DecorativeLines type="curved" className="mb-6 opacity-60" />
               
               <div className="prose prose-lg text-center">
-                <p className="text-foreground/90 leading-relaxed lowercase text-center">привет, я Азалия! я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры
+                <p className="text-foreground/90 leading-relaxed lowercase text-center my-0.5">привет, я Азалия! я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры
 
 больше 3-х лет я создаю атмосферные видео на youtube, участвую в мероприятиях в качестве лайф-фотографа и помогаю сохранить теплые воспоминания и эмоции о важных событиях нашей жизни. </p>
                 <p className="text-foreground/90 leading-relaxed mt-4 lowercase">
