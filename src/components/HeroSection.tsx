@@ -23,9 +23,8 @@ const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
           <h1 className="text-4xl md:text-6xl font-montserrat text-white leading-tight uppercase font-extrabold px-0 text-left py-[50px] my-[5px] ">
             сохраняю живые<br />моменты красиво<br />и просто
           </h1>
-          <p className="text-lg md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto lowercase">
-            живая фото- и видеосъёмка, монтаж и влоги под ключ — без тяжёлой постановки и долгой ретуши
-          </p>
+          <p className="md:text-2xl max-w-3xl lowercase text-left text-2xl text-orange-100 font-light mx-0 my-[50px] py-0">привет, я Азалия! 
+я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры</p>
           <div className="flex justify-center">
             <Button 
               size="lg"
