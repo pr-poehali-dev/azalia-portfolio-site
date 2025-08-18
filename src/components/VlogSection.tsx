@@ -15,11 +15,9 @@ const VlogSection = () => {
           </div>
           
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-montserrat font-bold mb-8 uppercase leading-tight">
-              влог о<br />
-              событии под<br />
-              ключ
-            </h2>
+            <h2 className="md:text-5xl font-montserrat font-bold uppercase leading-tight text-3xl my-0">ВЛОГ 
+ПОД 
+КЛЮЧ</h2>
             
             <DecorativeLines type="wavy" className="mb-8 opacity-40" />
             
