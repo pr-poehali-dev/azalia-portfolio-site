@@ -1,68 +1,89 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import DecorativeLines from './DecorativeLines';
 
 const VlogSection = () => {
-  const badges = [
-    { icon: 'Video', text: 'съёмка 1 день' },
-    { icon: 'Clock', text: 'сдача до 7 дней' },
-    { icon: 'Link', text: 'YouTube-ссылка + исходники на Диске' }
-  ];
-
   return (
-    <section id="vlog" className="py-16 px-4">
-      <div className="container mx-auto">
-        <div className="max-w-6xl mx-auto">
-          <Card className="bg-gradient-to-br from-forest to-earth text-cream border-none">
-            <CardContent className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h2 className="text-4xl font-cormorant font-bold mb-6">
-                    Влог о событии под ключ
-                  </h2>
-                  <p className="text-cream/90 leading-relaxed mb-6 text-lg">
-                    Я приезжаю на ваше событие (свадьба, день рождения, открытие пространства, вечеринка), 
-                    снимаю живую атмосферу + пару тёплых интервью и за 7 дней собираю 8–12-минутный 
-                    влог-фильм, который хочется пересматривать.
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-4 mb-6">
-                    {badges.map((badge, index) => (
-                      <div key={index} className="flex items-center space-x-2 bg-cream/10 px-4 py-2 rounded-full">
-                        <Icon name={badge.icon} size={16} className="text-cream" />
-                        <span className="text-sm">{badge.text}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mb-6">
-                    <span className="text-3xl font-bold text-gold">от 35 000 ₽</span>
-                  </div>
-
-                  <Button 
-                    size="lg"
-                    className="bg-cream text-forest hover:bg-cream/90"
-                    onClick={() => window.open('https://t.me/azaluk', '_blank')}
-                  >
-                    Обсудить влог под ключ (TG)
-                  </Button>
+    <section id="vlog" className="py-16 px-4 relative">
+      <div className="container mx-auto max-w-4xl">
+        {/* Mobile-optimized layout */}
+        <div className="bg-forest text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden">
+          {/* Decorative background pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-10 right-10 w-20 h-20 border border-cream/20 rounded-full"></div>
+            <div className="absolute bottom-20 left-10 w-16 h-16 border border-cream/20 rounded-full"></div>
+          </div>
+          
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-5xl font-montserrat font-bold mb-8 uppercase leading-tight">
+              влог о<br />
+              событии под<br />
+              ключ
+            </h2>
+            
+            <DecorativeLines type="wavy" className="mb-8 opacity-40" />
+            
+            <div className="text-lg md:text-xl leading-relaxed mb-10 font-light">
+              <p className="lowercase">
+                я приезжаю на ваше событие (свадьба, день рождения, открытие пространства, вечеринка), 
+                снимаю живую атмосферу, пару тёплых интервью и за 3–7 дней собираю 8–12-минутный влог-фильм, 
+                который хочется пересматривать.
+              </p>
+            </div>
+            
+            {/* Service features */}
+            <div className="space-y-6 mb-10">
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20">
+                <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
+                  <Icon name="Video" size={24} className="text-cream" />
                 </div>
-                
-                <div className="relative">
-                  <img
-                    src="https://cdn.poehali.dev/files/897f8f74-fa81-437f-bd57-8576ee19afbc.jpg"
-                    alt="Vlog preview"
-                    className="w-full h-64 object-cover rounded-2xl"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-2xl">
-                    <Button size="icon" className="w-16 h-16 rounded-full bg-cream text-forest">
-                      <Icon name="Play" size={24} />
-                    </Button>
-                  </div>
-                </div>
+                <span className="text-lg font-medium lowercase">съёмка 1 день</span>
               </div>
-            </CardContent>
-          </Card>
+              
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20">
+                <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
+                  <Icon name="Clock" size={24} className="text-cream" />
+                </div>
+                <span className="text-lg font-medium lowercase">сдача до 7 дней</span>
+              </div>
+              
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20">
+                <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
+                  <Icon name="Link" size={24} className="text-cream" />
+                </div>
+                <span className="text-lg font-medium lowercase">youtube-ссылка + исходники на диске</span>
+              </div>
+            </div>
+            
+            {/* Price */}
+            <div className="text-center mb-8">
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-cream/90">
+                от 35 000 ₽
+              </div>
+              <div className="text-lg text-cream/70 lowercase">
+                обсудить блог под ключ (тз)
+              </div>
+            </div>
+            
+            <DecorativeLines type="curved" className="mb-8 opacity-40" />
+            
+            {/* CTA Button */}
+            <div className="text-center">
+              <Button 
+                size="lg"
+                className="bg-cream text-forest hover:bg-cream/90 rounded-full px-12 py-4 text-lg font-semibold uppercase tracking-wide shadow-lg"
+                onClick={() => window.open('https://t.me/azaluk', '_blank')}
+              >
+                <Icon name="MessageCircle" size={20} className="mr-2" />
+                обсудить проект
+              </Button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile decorative elements */}
+        <div className="md:hidden mt-8">
+          <DecorativeLines type="dashed" className="opacity-30" />
         </div>
       </div>
     </section>
