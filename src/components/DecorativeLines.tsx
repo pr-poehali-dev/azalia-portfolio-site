@@ -32,25 +32,6 @@ const DecorativeLines = ({ className = '', type = 'wavy' }: DecorativeLinesProps
 
   return (
     <div className={`w-full ${className}`}>
-      <svg width="100%" height="60" viewBox="0 0 200 40" className="overflow-visible">
-        <path
-          d={getLinePath()}
-          stroke="#5a453a"
-          strokeWidth="2"
-          fill="none"
-          {...getStrokeProps()}
-        />
-        
-        {/* Decorative dots along the line */}
-        {type === 'wavy' && (
-          <>
-            <circle cx="25" cy="15" r="2" fill="#8b6d5a" />
-            <circle cx="75" cy="25" r="2" fill="#8b6d5a" />
-            <circle cx="125" cy="15" r="2" fill="#8b6d5a" />
-            <circle cx="175" cy="25" r="2" fill="#8b6d5a" />
-          </>
-        )}
-      </svg>
     </div>
   );
 };
