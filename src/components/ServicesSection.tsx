@@ -91,9 +91,7 @@ const ServicesSection = () => {
           <DecorativeLines type="curved" className="w-full md:w-1/3 opacity-50 rotate-180" />
         </div>
 
-        <div className="text-center text-sm text-muted-foreground lowercase">
-          точная смета — в tg после 3–5 вопросов (длительность, локация, срок)
-        </div>
+        <div className="text-center text-sm text-muted-foreground lowercase"></div>
       </div>
     </section>
   );

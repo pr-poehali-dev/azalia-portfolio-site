@@ -5,7 +5,7 @@ import DecorativeLines from './DecorativeLines';
 const VlogSection = () => {
   return (
     <section id="vlog" className="py-16 px-4 relative">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-4xl px-0">
         {/* Mobile-optimized layout */}
         <div className="bg-forest text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden">
           {/* Decorative background pattern */}
@@ -31,21 +31,21 @@ const VlogSection = () => {
             
             {/* Service features */}
             <div className="space-y-6 mb-10">
-              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20">
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 py-0">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Video" size={24} className="text-cream" />
                 </div>
                 <span className="text-lg font-medium lowercase">съёмка 1 день</span>
               </div>
               
-              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20">
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 py-0">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Clock" size={24} className="text-cream" />
                 </div>
                 <span className="text-lg font-medium lowercase">сдача до 7 дней</span>
               </div>
               
-              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20">
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 py-0">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Link" size={24} className="text-cream" />
                 </div>
