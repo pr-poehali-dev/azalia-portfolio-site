@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
-
+import VlogSection from '@/components/VlogSection';
 import OtherSections from '@/components/OtherSections';
 import ScrollToTop from '@/components/ScrollToTop';
 
@@ -47,7 +47,7 @@ const Index = () => {
   const navItems = [
     { id: 'about', label: 'обо мне' },
     { id: 'services', label: 'услуги' },
-
+    { id: 'vlog', label: 'влог под ключ' },
     { id: 'collaboration', label: 'сотрудничество' },
     { id: 'support', label: 'поддержать' }
   ];
@@ -80,7 +80,7 @@ const Index = () => {
 
       <ServicesSection />
 
-
+      <VlogSection />
 
       <OtherSections filmStrip={filmStrip} />
 
