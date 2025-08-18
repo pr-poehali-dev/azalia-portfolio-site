@@ -24,14 +24,7 @@ const HeroSection = ({ filmStrip, scrollToSection }: HeroSectionProps) => {
                 <p className="text-xl md:text-2xl text-cream/90 mb-8 max-w-3xl mx-auto lowercase">
                   живая фото- и видеосъёмка, монтаж и влоги под ключ — без тяжёлой постановки и долгой ретуши
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    size="lg"
-                    onClick={() => scrollToSection('services')}
-                    className="bg-cream text-forest hover:bg-cream/90 rounded-full px-8"
-                  >
-                    смотреть примеры
-                  </Button>
+                <div className="flex justify-center">
                   <Button 
                     size="lg"
                     variant="outline"
