@@ -56,8 +56,7 @@ const VlogSection = () => {
             {/* Price */}
             <div className="text-center mb-8">
               <div className="text-4xl md:text-5xl font-bold mb-2 text-cream/90">от 30 000 ₽</div>
-              <div className="text-lg text-cream/70 lowercase rounded-none text-15px
-">точная стоимость рассчитывается исходя из продолжительности мероприятия и сложности монтажа</div>
+
             </div>
             
             <DecorativeLines type="curved" className="mb-8 opacity-40" />
