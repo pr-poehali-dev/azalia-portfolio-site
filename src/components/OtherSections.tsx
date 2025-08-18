@@ -10,12 +10,12 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
   const reviews = [
     {
       text: 'ваши влоги — как тёплое одеяло. после просмотра хочется жить медленнее. спасибо!',
-      author: 'наталья',
+      author: 'Наталья',
       role: 'зрительница'
     },
     {
       text: 'фото со свадьбы — будто маленький фильм о нас. живые лица, свет, смех — восторг!',
-      author: 'антон и мария',
+      author: 'Антон и Мария',
       role: 'молодожёны'
     },
     {
@@ -56,7 +56,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       {/* Reviews Section */}
       <section id="reviews" className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-cormorant font-bold text-center mb-12 text-accent">Отзывы</h2>
+          <h2 className="text-4xl font-montserrat font-bold text-center mb-12 text-accent uppercase">отзывы</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
@@ -79,10 +79,10 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       {/* Support Section */}
       <section id="support" className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-cormorant font-bold mb-6 text-accent">Поддержать проект</h2>
-          <p className="text-lg leading-relaxed mb-8 text-muted-foreground">
-            Если мои видео греют душу — можно "угостить меня кофе" ☕️. 
-            Ваша поддержка превращается в новые тёплые истории.
+          <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase">поддержать проект</h2>
+          <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
+            если мои видео греют душу — можно "угостить меня кофе" ☕️. 
+            ваша поддержка превращается в новые тёплые истории.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -90,14 +90,14 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
               variant="outline"
               className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
             >
-              Boosty
+              boosty
             </Button>
             <Button 
               size="lg"
               variant="outline"
               className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
             >
-              VK Донаты
+              vk донаты
             </Button>
           </div>
         </div>
@@ -106,11 +106,11 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       {/* Contacts Section */}
       <section id="contacts" className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl font-cormorant font-bold text-center mb-12 text-accent">Контакты</h2>
+          <h2 className="text-4xl font-montserrat font-bold text-center mb-12 text-accent uppercase">контакты</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-center">
-              <h3 className="text-2xl font-cormorant font-semibold mb-6">Соцсети</h3>
+              <h3 className="text-2xl font-montserrat font-bold mb-6 uppercase">соцсети</h3>
               <div className="flex flex-wrap justify-center gap-4">
                 {socialLinks.map((social, index) => (
                   <Button
@@ -128,7 +128,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
             </div>
             
             <div className="text-center">
-              <h3 className="text-2xl font-cormorant font-semibold mb-6">Связаться</h3>
+              <h3 className="text-2xl font-montserrat font-bold mb-6 uppercase">связаться</h3>
               <div className="space-y-4">
                 <Button
                   size="lg"
@@ -136,7 +136,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                   onClick={() => window.open('https://t.me/azaluk', '_blank')}
                 >
                   <Icon name="MessageCircle" size={20} className="mr-2" />
-                  Написать в Telegram
+                  написать в telegram
                 </Button>
                 <Button
                   size="lg"
@@ -145,7 +145,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                   onClick={() => window.location.href = 'mailto:azaluk@example.com'}
                 >
                   <Icon name="Mail" size={20} className="mr-2" />
-                  Написать email
+                  написать email
                 </Button>
               </div>
             </div>

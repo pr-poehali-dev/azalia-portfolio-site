@@ -12,7 +12,7 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
               <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase">обо мне</h2>
               <div className="prose prose-lg">
                 <p className="text-foreground/90 leading-relaxed lowercase">
-                  привет! я азалия — снимаю жизнь такой, как она есть: тёплой, честной, красивой в мелочах. 
+                  привет! я Азалия — снимаю жизнь такой, как она есть: тёплой, честной, красивой в мелочах. 
                   люблю атмосферу ретритов, праздников, семейных встреч и тихих будней.
                 </p>
                 <p className="text-foreground/90 leading-relaxed mt-4 lowercase">
@@ -21,7 +21,7 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
                 </p>
               </div>
               <div className="mt-6">
-                <span className="text-2xl font-montserrat text-accent lowercase">— азалия @azaluk</span>
+                <span className="text-2xl font-caveat text-accent">— Азалия @azaluk</span>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
