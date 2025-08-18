@@ -31,36 +31,33 @@ const VlogSection = () => {
             
             {/* Service features */}
             <div className="space-y-6 mb-10">
-              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 py-0">
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 my-0 py-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Video" size={24} className="text-cream" />
                 </div>
-                <span className="text-lg font-medium lowercase">съёмка 1 день</span>
+                <span className="font-medium lowercase text-base">съёмка 1 день</span>
               </div>
               
-              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 py-0">
+              <div className="flex items-center space-x-4 bg-forest/50 p-4 border border-cream/20 py-[5px] rounded-2xl">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Clock" size={24} className="text-cream" />
                 </div>
-                <span className="text-lg font-medium lowercase">сдача до 7 дней</span>
+                <span className="font-medium lowercase text-base">сдача до 7 дней</span>
               </div>
               
               <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 py-0">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Link" size={24} className="text-cream" />
                 </div>
-                <span className="text-lg font-medium lowercase">youtube-ссылка + исходники на диске</span>
+                <span className="font-medium lowercase text-base">youtube-ссылка + исходники на диске</span>
               </div>
             </div>
             
             {/* Price */}
             <div className="text-center mb-8">
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-cream/90">
-                от 35 000 ₽
-              </div>
-              <div className="text-lg text-cream/70 lowercase">
-                обсудить блог под ключ (тз)
-              </div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-cream/90">от 30 000 ₽</div>
+              <div className="text-lg text-cream/70 lowercase rounded-none text-15px
+">точная стоимость рассчитывается исходя из продолжительности мероприятия и сложности монтажа</div>
             </div>
             
             <DecorativeLines type="curved" className="mb-8 opacity-40" />
