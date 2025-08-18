@@ -22,30 +22,26 @@ const VlogSection = () => {
             <DecorativeLines type="wavy" className="mb-8 opacity-40" />
             
             <div className="text-lg md:text-xl leading-relaxed mb-10 font-light">
-              <p className="lowercase">
-                я приезжаю на ваше событие (свадьба, день рождения, открытие пространства, вечеринка), 
-                снимаю живую атмосферу, пару тёплых интервью и за 3–7 дней собираю 8–12-минутный влог-фильм, 
-                который хочется пересматривать.
-              </p>
+              <p className="lowercase">я приезжаю на ваше событие (свадьба, день рождения, открытие пространства, вечеринка), снимаю живую атмосферу, пару тёплых интервью и за 7 дней собираю 8–12-минутный влог-фильм, который хочется пересматривать.</p>
             </div>
             
             {/* Service features */}
             <div className="space-y-6 mb-10">
-              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 my-0 py-[5px]">
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 my-0 py-[5px] px-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Video" size={24} className="text-cream" />
                 </div>
-                <span className="font-medium lowercase text-base">съёмка 1 день</span>
+                <span className="font-medium lowercase text-base">готова рассмотреть проекты вне Москвы</span>
               </div>
               
-              <div className="flex items-center space-x-4 bg-forest/50 p-4 border border-cream/20 py-[5px] rounded-2xl">
+              <div className="flex items-center space-x-4 bg-forest/50 p-4 border border-cream/20 py-[5px] rounded-2xl px-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Clock" size={24} className="text-cream" />
                 </div>
-                <span className="font-medium lowercase text-base">сдача до 7 дней</span>
+                <span className="font-medium lowercase text-base">точная стоимость рассчитывается исходя из продолжительности мероприятия и сложности монтажа</span>
               </div>
               
-              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 py-0">
+              <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 px-[5px] py-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
                   <Icon name="Link" size={24} className="text-cream" />
                 </div>
