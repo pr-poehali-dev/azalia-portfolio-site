@@ -43,7 +43,7 @@ const ServicesSection = () => {
           <DecorativeLines type="wavy" className="mb-4 opacity-60" />
         </div>
         
-        <h2 className="text-4xl font-montserrat font-bold text-center mb-12 text-accent uppercase">услуги</h2>
+        <h2 className="text-4xl font-montserrat font-bold text-center uppercase my-5 text-amber-50">услуги</h2>
         
         {/* Mobile film strip */}
         <div className="md:hidden flex justify-center mb-8">

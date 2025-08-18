@@ -56,7 +56,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       {/* Reviews Section */}
       <section id="reviews" className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-montserrat font-bold text-center mb-12 text-accent uppercase">отзывы</h2>
+          <h2 className="text-4xl font-montserrat font-bold text-center mb-12 uppercase text-amber-50">отзывы</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
@@ -106,7 +106,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       {/* Contacts Section */}
       <section id="contacts" className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl font-montserrat font-bold text-center mb-12 text-accent uppercase">контакты</h2>
+          <h2 className="text-4xl font-montserrat font-bold text-center mb-12 uppercase text-amber-50">контакты</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-center">
