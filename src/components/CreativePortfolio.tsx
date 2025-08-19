@@ -99,7 +99,7 @@ const CreativePortfolio = () => {
         
 
 
-        {/* Carousel */}
+        {/* Carousel with peek effect */}
         <div className="relative overflow-hidden">
           {/* Desktop navigation arrows */}
           <button 
@@ -115,52 +115,63 @@ const CreativePortfolio = () => {
             <Icon name="ChevronRight" size={20} />
           </button>
           
-          <div 
-            className="flex transition-transform duration-500 ease-out touch-pan-x"
-            style={{
-              transform: `translateX(-${currentIndex * 100}%)`
-            }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {portfolioItems.map((item, index) => (
-              <div key={item.id} className="w-full flex-shrink-0 px-2">
-                <div className="relative group cursor-pointer">
-                  <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    {/* Type indicator */}
-                    {item.type === 'video' && (
-                      <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 text-white text-sm flex items-center">
-                        <Icon name="Play" size={16} className="mr-2" />
-                        {item.duration}
-                      </div>
-                    )}
-                    
-                    {/* Content overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <div className="text-xs font-mono opacity-70 mb-2">({item.id})</div>
-                      <h3 className="text-xl font-montserrat font-bold uppercase mb-3 leading-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm opacity-90 lowercase leading-relaxed">
-                        {item.description.length > 150 
-                          ? `${item.description.substring(0, 150)}...` 
-                          : item.description}
-                      </p>
+          <div className="px-8 md:px-16">
+            <div 
+              className="flex transition-transform duration-500 ease-out touch-pan-x"
+              style={{
+                transform: `translateX(calc(-${currentIndex * 100}% + ${currentIndex * 32}px))`
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {portfolioItems.map((item, index) => (
+                <div 
+                  key={item.id} 
+                  className={`flex-shrink-0 px-2 transition-all duration-500 ${
+                    index === currentIndex 
+                      ? 'w-full opacity-100 scale-100' 
+                      : 'w-4/5 opacity-60 scale-95'
+                  }`}
+                >
+                  <div className="relative group cursor-pointer">
+                    <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      
+                      {/* Type indicator */}
+                      {item.type === 'video' && (
+                        <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 text-white text-sm flex items-center">
+                          <Icon name="Play" size={16} className="mr-2" />
+                          {item.duration}
+                        </div>
+                      )}
+                      
+                      {/* Content overlay - только для активного слайда */}
+                      {index === currentIndex && (
+                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                          <div className="text-xs font-mono opacity-70 mb-2">({item.id})</div>
+                          <h3 className="text-xl font-montserrat font-bold uppercase mb-3 leading-tight">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm opacity-90 lowercase leading-relaxed">
+                            {item.description.length > 150 
+                              ? `${item.description.substring(0, 150)}...` 
+                              : item.description}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           
           {/* Dots indicator */}
