@@ -36,7 +36,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
   return (
     <>
       {/* Collaboration Section */}
-      <section id="collaboration" className="py-16 px-4 text-cream" style={{ backgroundColor: '#2d3e2f' }}>
+      <section id="collaboration" className="py-16 px-4 text-cream" style={{ backgroundColor: '#6b5b4d' }}>
         <div className="container mx-auto max-w-4xl text-center px-0">
           <h2 className="font-montserrat font-bold uppercase my-0 text-3xl" style={{ color: '#f5f0e8' }}>сотрудничество</h2>
           <p className="text-lg leading-relaxed mb-8 lowercase" style={{ color: '#f5f0e8' }}>

@@ -47,7 +47,7 @@ const PortfolioSection = () => {
   return (
     <section className="py-16 px-4 bg-cream text-forest">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl font-caveat font-bold text-center text-forest mb-12">
+        <h2 className="text-4xl font-montserrat font-bold text-center text-forest mb-12 uppercase">
           мой творческий портфель
         </h2>
         
