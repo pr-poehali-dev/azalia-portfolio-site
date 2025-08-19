@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -7,6 +8,10 @@ interface OtherSectionsProps {
 }
 
 const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
+  const [currentReview, setCurrentReview] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const reviews = [
     {
       text: 'ваши влоги — как тёплое одеяло. после просмотра хочется жить медленнее. спасибо!',
@@ -24,6 +29,37 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       role: 'клиенты'
     }
   ];
+
+  const nextReview = () => {
+    setCurrentReview((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextReview();
+    }
+    if (isRightSwipe) {
+      prevReview();
+    }
+  };
 
   const socialLinks = [
     { icon: 'MessageCircle', label: 'telegram', url: 'https://t.me/azaluk' },
@@ -64,7 +100,8 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
         <div className="container mx-auto">
           <h2 className="text-4xl font-montserrat font-bold text-center mb-12 uppercase text-amber-50">отзывы</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Desktop - все отзывы видны */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
               <Card key={index} className="bg-card border-border">
                 <CardContent className="p-6">
@@ -78,6 +115,67 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Mobile - карусель с одним отзывом */}
+          <div className="md:hidden relative">
+            {/* Navigation arrows */}
+            <button 
+              onClick={prevReview}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+            >
+              <Icon name="ChevronLeft" size={20} />
+            </button>
+            <button 
+              onClick={nextReview}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+            >
+              <Icon name="ChevronRight" size={20} />
+            </button>
+
+            {/* Carousel container */}
+            <div 
+              className="overflow-hidden px-8"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div 
+                className="flex transition-transform duration-500 ease-out"
+                style={{
+                  transform: `translateX(-${currentReview * 100}%)`
+                }}
+              >
+                {reviews.map((review, index) => (
+                  <div key={index} className="flex-shrink-0 w-full px-2">
+                    <Card className="bg-card border-border">
+                      <CardContent className="p-6">
+                        <p className="text-foreground/90 leading-relaxed mb-4 italic">
+                          "{review.text}"
+                        </p>
+                        <div className="text-right">
+                          <div className="font-semibold text-accent">— {review.author}</div>
+                          <div className="text-sm text-muted-foreground">{review.role}</div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Dots indicator */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {reviews.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentReview(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentReview ? 'bg-accent w-6' : 'bg-accent/30'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
