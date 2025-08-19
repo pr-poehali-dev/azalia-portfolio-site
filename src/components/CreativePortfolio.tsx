@@ -72,25 +72,20 @@ const CreativePortfolio = () => {
     <section className="py-12 px-4 bg-cream">
       <div className="container mx-auto max-w-4xl">
         
-        {/* Title and navigation */}
-        <div className="text-center mb-4">
-          <h2 className="text-xl font-handwriting text-forest mb-2">— Азалия @azaluk</h2>
-          
-          {/* Navigation arrows */}
-          <div className="flex justify-between items-center">
-            <button 
-              onClick={prevSlide}
-              className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
-            >
-              <span className="text-lg font-mono">{"<<<"}</span>
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
-            >
-              <span className="text-lg font-mono">{">>>"}</span>
-            </button>
-          </div>
+        {/* Navigation arrows */}
+        <div className="flex justify-between items-center mb-6">
+          <button 
+            onClick={prevSlide}
+            className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
+          >
+            <span className="text-lg font-mono">{"<<<"}</span>
+          </button>
+          <button 
+            onClick={nextSlide}
+            className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
+          >
+            <span className="text-lg font-mono">{">>>"}</span>
+          </button>
         </div>
 
         {/* String line with clothespins */}
@@ -155,11 +150,14 @@ const CreativePortfolio = () => {
 
         {/* Bottom section */}
         <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-4 backdrop-blur-sm rounded-full shadow-lg border border-forest/20 px-0 py-0 bg-amber-50">
+          <div className="inline-flex items-center space-x-4 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-forest/20">
             <button 
               className="flex items-center px-4 py-2 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 font-medium text-sm"
               onClick={() => window.open('https://youtube.com/@azaluk', '_blank')}
-            >все работы</button>
+            >
+              <Icon name="ExternalLink" size={14} className="mr-2" />
+              смотреть все работы
+            </button>
             <button 
               className="flex items-center px-4 py-2 border border-forest text-forest rounded-full hover:bg-forest hover:text-cream transition-all duration-300 font-medium text-sm"
               onClick={() => window.open('https://t.me/azaluk', '_blank')}
