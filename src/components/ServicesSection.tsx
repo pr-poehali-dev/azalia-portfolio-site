@@ -7,21 +7,14 @@ import DecorativeLines from './DecorativeLines';
 const ServicesSection = () => {
   const services = [
     {
-      title: 'лайф-фото событий',
+      title: 'лайф-съемка событий',
       description: 'ненавязчиво ловлю эмоции и детали. естественные цвета, без ретуши. отдача в течение 24–72 часов общим альбомом.',
       price: 'от 3 000 ₽/час',
       details: 'полудень от 12 000 ₽, день от 18 000 ₽',
       icon: 'Camera'
     },
     {
-      title: 'лайф-видео событий',
-      description: 'сниму атмосферу праздника, интервью с гостями, детали пространства. живой звук + музыка по вайбу.',
-      price: 'съёмка от 15 000 ₽',
-      details: 'по тз',
-      icon: 'Video'
-    },
-    {
-      title: 'монтаж ваших материалов',
+      title: 'монтаж видео',
       description: 'превращу разрозненные фрагменты в цельную историю: музыка, титры, деликатные переходы, мягкая "плёнка" по желанию.',
       price: 'ролик 5–10 мин от 8 000 ₽',
       details: '',
@@ -54,7 +47,7 @@ const ServicesSection = () => {
           />
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <Card key={index} className="bg-card border-border hover:bg-card/80 transition-colors">
               <CardContent className="p-6">
@@ -86,7 +79,7 @@ const ServicesSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
           <DecorativeLines type="curved" className="w-full md:w-1/3 opacity-50" />
           <div className="text-center text-sm text-muted-foreground lowercase">
-            точная смета — в tg после 3–5 вопросов (длительность, локация, срок)
+цены ориентировочные, точная стоимость определится по деталям вашего заказа. смело пишите в телеграм!
           </div>
           <DecorativeLines type="curved" className="w-full md:w-1/3 opacity-50 rotate-180" />
         </div>
