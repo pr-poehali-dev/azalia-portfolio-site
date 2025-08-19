@@ -61,11 +61,11 @@ const CreativePortfolio = () => {
   ];
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % (portfolioItems.length - 2));
+    setCurrentIndex((prev) => (prev + 1) % portfolioItems.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + (portfolioItems.length - 2)) % (portfolioItems.length - 2));
+    setCurrentIndex((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length);
   };
 
   return (
@@ -93,62 +93,63 @@ const CreativePortfolio = () => {
           </div>
         </div>
 
-        {/* String line with clothespins */}
+        {/* Carousel */}
         <div className="relative overflow-hidden">
-          {/* Rope/String */}
-          <div className="absolute top-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/30 to-transparent"></div>
-          <div className="absolute top-4 left-16 right-16 h-px bg-forest/50"></div>
-          
-          {/* Polaroid photos hanging from rope */}
           <div 
-            className="flex items-start gap-5 transition-transform duration-500 ease-out py-2"
+            className="flex transition-transform duration-500 ease-out"
             style={{
-              transform: `translateX(-${currentIndex * 160}px)`
+              transform: `translateX(-${currentIndex * 100}%)`
             }}
           >
             {portfolioItems.map((item, index) => (
-              <div key={item.id} className="relative group cursor-pointer flex-shrink-0">
-                
-                {/* Clothespin */}
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-20">
-                  <div className="w-4 h-6 bg-gradient-to-b from-amber-200 to-amber-300 rounded-sm shadow-md">
-                    <div className="absolute top-0.5 left-0.5 right-0.5 h-1.5 bg-amber-100 rounded-sm"></div>
-                    <div className="absolute bottom-0.5 left-0.5 right-0.5 h-0.5 bg-amber-400 rounded-sm"></div>
-                  </div>
-                </div>
-                
-                {/* Polaroid Photo */}
-                <div 
-                  className="w-36 bg-cream p-3 shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-500"
-                  style={{
-                    transform: `rotate(${index % 2 === 0 ? '2deg' : '-2deg'}) ${index % 3 === 1 ? 'translateY(10px)' : ''}`
-                  }}
-                >
-                  {/* Photo area */}
-                  <div className="relative w-full h-36 overflow-hidden bg-gray-100 mb-4">
+              <div key={item.id} className="w-full flex-shrink-0 px-4">
+                <div className="relative group cursor-pointer">
+                  <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
+                    
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     
                     {/* Type indicator */}
                     {item.type === 'video' && (
-                      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1 text-white text-xs flex items-center">
-                        <Icon name="Play" size={8} className="mr-1" />
-                        <span className="text-xs">{item.duration}</span>
+                      <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 text-white text-sm flex items-center">
+                        <Icon name="Play" size={16} className="mr-2" />
+                        {item.duration}
                       </div>
                     )}
-                  </div>
-                  
-                  {/* Polaroid caption area */}
-                  <div className="text-center">
-                    <h3 className="text-xs font-montserrat font-bold uppercase text-forest leading-tight">
-                      {item.title.length > 20 ? `${item.title.substring(0, 20)}...` : item.title}
-                    </h3>
+                    
+                    {/* Content overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <div className="text-xs font-mono opacity-70 mb-2">({item.id})</div>
+                      <h3 className="text-xl font-montserrat font-bold uppercase mb-3 leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm opacity-90 lowercase leading-relaxed">
+                        {item.description.length > 150 
+                          ? `${item.description.substring(0, 150)}...` 
+                          : item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+          
+          {/* Dots indicator */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {portfolioItems.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? 'bg-forest w-6' : 'bg-forest/30'
+                }`}
+              />
             ))}
           </div>
         </div>
