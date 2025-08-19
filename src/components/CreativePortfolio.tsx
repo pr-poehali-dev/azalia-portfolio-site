@@ -69,36 +69,36 @@ const CreativePortfolio = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-amber-900/20 via-amber-800/30 to-black/60">
-      <div className="container mx-auto max-w-5xl">
+    <section className="py-12 px-4 bg-cream">
+      <div className="container mx-auto max-w-4xl">
         
         {/* Navigation arrows */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-6">
           <button 
             onClick={prevSlide}
-            className="text-cream/60 hover:text-cream transition-colors cursor-pointer"
+            className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
           >
-            <span className="text-xl font-mono">{"<<<"}</span>
+            <span className="text-lg font-mono">{"<<<"}</span>
           </button>
           <button 
             onClick={nextSlide}
-            className="text-cream/60 hover:text-cream transition-colors cursor-pointer"
+            className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
           >
-            <span className="text-xl font-mono">{">>>"}</span>
+            <span className="text-lg font-mono">{">>>"}</span>
           </button>
         </div>
 
         {/* String line with clothespins */}
         <div className="relative overflow-hidden">
           {/* Rope/String */}
-          <div className="absolute top-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent"></div>
-          <div className="absolute top-4 left-16 right-16 h-px bg-amber-200/80"></div>
+          <div className="absolute top-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest/30 to-transparent"></div>
+          <div className="absolute top-4 left-16 right-16 h-px bg-forest/50"></div>
           
-          {/* Photos hanging from rope */}
+          {/* Polaroid photos hanging from rope */}
           <div 
-            className="flex items-start gap-6 transition-transform duration-500 ease-out py-2"
+            className="flex items-start gap-5 transition-transform duration-500 ease-out py-2"
             style={{
-              transform: `translateX(-${currentIndex * 200}px)`
+              transform: `translateX(-${currentIndex * 160}px)`
             }}
           >
             {portfolioItems.map((item, index) => (
@@ -112,37 +112,35 @@ const CreativePortfolio = () => {
                   </div>
                 </div>
                 
-                {/* Photo */}
+                {/* Polaroid Photo */}
                 <div 
-                  className="w-48 h-60 bg-white p-2 shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500"
+                  className="w-36 bg-cream p-3 shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-500"
                   style={{
-                    transform: `rotate(${index % 2 === 0 ? '2deg' : '-2deg'}) ${index % 3 === 1 ? 'translateY(15px)' : ''}`
+                    transform: `rotate(${index % 2 === 0 ? '2deg' : '-2deg'}) ${index % 3 === 1 ? 'translateY(10px)' : ''}`
                   }}
                 >
-                  <div className="relative w-full h-full overflow-hidden bg-gray-100">
+                  {/* Photo area */}
+                  <div className="relative w-full h-36 overflow-hidden bg-gray-100 mb-4">
                     <img 
                       src={item.image} 
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     
-                    {/* Gradient overlay at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-                    
                     {/* Type indicator */}
                     {item.type === 'video' && (
                       <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1 text-white text-xs flex items-center">
-                        <Icon name="Play" size={10} className="mr-1" />
-                        {item.duration}
+                        <Icon name="Play" size={8} className="mr-1" />
+                        <span className="text-xs">{item.duration}</span>
                       </div>
                     )}
-                    
-                    {/* Title overlay */}
-                    <div className="absolute bottom-2 left-2 right-2 text-white">
-                      <h3 className="text-sm font-montserrat font-bold uppercase leading-tight">
-                        {item.title.length > 30 ? `${item.title.substring(0, 30)}...` : item.title}
-                      </h3>
-                    </div>
+                  </div>
+                  
+                  {/* Polaroid caption area */}
+                  <div className="text-center">
+                    <h3 className="text-xs font-montserrat font-bold uppercase text-forest leading-tight">
+                      {item.title.length > 20 ? `${item.title.substring(0, 20)}...` : item.title}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -151,20 +149,20 @@ const CreativePortfolio = () => {
         </div>
 
         {/* Bottom section */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-6 bg-white/10 backdrop-blur-md rounded-full px-8 py-4 shadow-xl border border-white/20">
+        <div className="text-center mt-12">
+          <div className="inline-flex items-center space-x-4 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-forest/20">
             <button 
-              className="flex items-center px-6 py-3 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 font-medium shadow-lg"
+              className="flex items-center px-4 py-2 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 font-medium text-sm"
               onClick={() => window.open('https://youtube.com/@azaluk', '_blank')}
             >
-              <Icon name="ExternalLink" size={16} className="mr-2" />
+              <Icon name="ExternalLink" size={14} className="mr-2" />
               смотреть все работы
             </button>
             <button 
-              className="flex items-center px-6 py-3 border border-white/30 text-cream rounded-full hover:bg-white/10 transition-all duration-300 font-medium"
+              className="flex items-center px-4 py-2 border border-forest text-forest rounded-full hover:bg-forest hover:text-cream transition-all duration-300 font-medium text-sm"
               onClick={() => window.open('https://t.me/azaluk', '_blank')}
             >
-              <Icon name="MessageCircle" size={16} className="mr-2" />
+              <Icon name="MessageCircle" size={14} className="mr-2" />
               написать
             </button>
           </div>
