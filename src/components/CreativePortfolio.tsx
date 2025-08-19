@@ -72,20 +72,25 @@ const CreativePortfolio = () => {
     <section className="py-12 px-4 bg-cream">
       <div className="container mx-auto max-w-4xl">
         
-        {/* Navigation arrows */}
-        <div className="flex justify-between items-center mb-6">
-          <button 
-            onClick={prevSlide}
-            className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
-          >
-            <span className="text-lg font-mono">{"<<<"}</span>
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
-          >
-            <span className="text-lg font-mono">{">>>"}</span>
-          </button>
+        {/* Title and navigation */}
+        <div className="text-center mb-4">
+          <h2 className="text-xl font-handwriting text-forest mb-2">— Азалия @azaluk</h2>
+          
+          {/* Navigation arrows */}
+          <div className="flex justify-between items-center">
+            <button 
+              onClick={prevSlide}
+              className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
+            >
+              <span className="text-lg font-mono">{"<<<"}</span>
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
+            >
+              <span className="text-lg font-mono">{">>>"}</span>
+            </button>
+          </div>
         </div>
 
         {/* String line with clothespins */}
