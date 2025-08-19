@@ -85,7 +85,7 @@ const ServicesSection = () => {
         {/* Decorative lines between sections */}
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
           <DecorativeLines type="curved" className="w-full md:w-1/3 opacity-50" />
-          <div className="text-center text-sm text-muted-foreground lowercase">
+          <div className="text-center text-sm lowercase" style={{ color: '#f5f0e8' }}>
 цены ориентировочные, точная стоимость определится по деталям вашего заказа. смело пишите в телеграм!
           </div>
           <DecorativeLines type="curved" className="w-full md:w-1/3 opacity-50 rotate-180" />
