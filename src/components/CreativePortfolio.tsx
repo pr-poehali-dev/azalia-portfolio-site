@@ -59,128 +59,129 @@ const CreativePortfolio = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-cream text-forest">
-      <div className="container mx-auto max-w-7xl">
-        {/* Uniform Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <section className="py-20 px-4 bg-gradient-to-br from-amber-900/20 via-amber-800/30 to-red-900/40">
+      <div className="container mx-auto max-w-6xl">
+        
+        {/* Navigation arrows */}
+        <div className="flex justify-between items-center mb-8">
+          <button className="text-cream/60 hover:text-cream transition-colors">
+            <span className="text-xl font-mono">{"<<<"}</span>
+          </button>
+          <button className="text-cream/60 hover:text-cream transition-colors">
+            <span className="text-xl font-mono">{">>>"}</span>
+          </button>
+        </div>
+
+        {/* String line with clothespins */}
+        <div className="relative">
+          {/* Rope/String */}
+          <div className="absolute top-6 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent"></div>
+          <div className="absolute top-6 left-8 right-8 h-px bg-amber-200/80"></div>
           
-          {portfolioItems.map((item, index) => (
-            <div key={item.id} className="relative group cursor-pointer">
-              <div 
-                className="relative h-64 overflow-hidden transition-all duration-500 hover:scale-[1.02] rounded-lg"
-                style={{ backgroundColor: item.color }}
-              >
-                {/* Background pattern for some variety */}
-                {index % 2 === 0 && (
-                  <div className="absolute inset-0 opacity-5">
-                    <div className="w-full h-full" style={{
-                      backgroundImage: `radial-gradient(circle at 30% 70%, ${item.color} 0%, transparent 50%)`
-                    }}></div>
-                  </div>
-                )}
+          {/* Instagram cards hanging from rope */}
+          <div className="flex justify-center items-start gap-8 md:gap-12 overflow-x-auto py-2">
+            {portfolioItems.slice(0, 3).map((item, index) => (
+              <div key={item.id} className="relative group cursor-pointer flex-shrink-0">
                 
-                {/* Decorative elements */}
-                {index % 3 === 1 && (
-                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-cream/20"></div>
-                )}
-                
-                {index % 3 === 2 && (
-                  <div 
-                    className="absolute top-2 left-2 w-12 h-16 bg-cream/10"
-                    style={{ 
-                      clipPath: 'ellipse(50% 60% at 50% 40%)',
-                      borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
-                    }}
-                  ></div>
-                )}
-                
-                {/* Image placement varies by layout type */}
-                {index % 4 === 0 && (
-                  <img 
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute right-0 top-0 w-2/3 h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                )}
-                
-                {index % 4 === 1 && (
-                  <img 
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute bottom-0 left-0 right-0 h-1/2 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                )}
-                
-                {index % 4 === 2 && (
-                  <img 
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-50 transition-all duration-700 group-hover:opacity-70 group-hover:scale-105"
-                  />
-                )}
-                
-                {index % 4 === 3 && (
-                  <img 
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute top-0 left-0 w-full h-2/3 object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                )}
-                
-                {/* Content overlay */}
-                <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-between">
-                  <div className="flex justify-between items-start">
-                    <div className="text-xs font-mono text-forest/60 bg-cream/80 px-2 py-1 rounded">
-                      ({item.id})
-                    </div>
-                    <div className="flex items-center bg-black/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-white">
-                      <Icon 
-                        name={item.type === 'video' ? 'Play' : 'Camera'} 
-                        size={10} 
-                        className="mr-1" 
-                      />
-                      {item.duration}
-                    </div>
-                  </div>
-                  
-                  <div className={`${index % 4 === 2 ? 'text-cream' : 'text-forest'}`}>
-                    <h3 className="text-sm sm:text-base font-montserrat font-bold uppercase mb-2 leading-tight">
-                      {item.title}
-                    </h3>
-                    <p className={`text-xs sm:text-sm lowercase leading-tight ${
-                      index % 4 === 2 ? 'text-cream/90' : 'text-forest/80'
-                    }`}>
-                      {item.description.length > 85 
-                        ? `${item.description.substring(0, 85)}...` 
-                        : item.description}
-                    </p>
+                {/* Clothespin */}
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="w-6 h-8 bg-gradient-to-b from-amber-200 to-amber-300 rounded-sm shadow-md">
+                    <div className="absolute top-1 left-1 right-1 h-2 bg-amber-100 rounded-sm"></div>
+                    <div className="absolute bottom-1 left-1 right-1 h-1 bg-amber-400 rounded-sm"></div>
                   </div>
                 </div>
                 
-                {/* Hover overlay for better text visibility */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+                {/* Instagram card mockup */}
+                <div 
+                  className="w-72 bg-white rounded-xl shadow-2xl overflow-hidden transform rotate-1 hover:rotate-0 transition-all duration-500 hover:scale-105"
+                  style={{
+                    transform: `rotate(${index % 2 === 0 ? '2deg' : '-2deg'}) ${index === 1 ? 'translateY(10px)' : ''}`
+                  }}
+                >
+                  {/* Instagram header */}
+                  <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-purple-600 p-0.5">
+                        <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                          <div className="w-6 h-6 rounded-full bg-gray-200"></div>
+                        </div>
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900">azaluk</div>
+                    </div>
+                    <Icon name="MoreHorizontal" size={20} className="text-gray-400" />
+                  </div>
+                  
+                  {/* Image content */}
+                  <div className="relative h-72 bg-gray-100 overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    {item.type === 'video' && (
+                      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1 text-white text-xs flex items-center">
+                        <Icon name="Play" size={12} className="mr-1" />
+                        {item.duration}
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Instagram actions */}
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center space-x-4">
+                        <Icon name="Heart" size={24} className="text-gray-700 hover:text-red-500 cursor-pointer transition-colors" />
+                        <Icon name="MessageCircle" size={24} className="text-gray-700 hover:text-gray-900 cursor-pointer transition-colors" />
+                        <Icon name="Send" size={24} className="text-gray-700 hover:text-gray-900 cursor-pointer transition-colors" />
+                      </div>
+                      <Icon name="Bookmark" size={24} className="text-gray-700 hover:text-gray-900 cursor-pointer transition-colors" />
+                    </div>
+                    
+                    {/* Likes */}
+                    <div className="text-sm font-semibold text-gray-900 mb-2">
+                      {Math.floor(Math.random() * 500) + 100} отметок «Нравится»
+                    </div>
+                    
+                    {/* Caption */}
+                    <div className="text-sm text-gray-900 mb-2">
+                      <span className="font-semibold">azaluk</span>{" "}
+                      <span className="lowercase">
+                        {item.description.length > 120 
+                          ? `${item.description.substring(0, 120)}...` 
+                          : item.description}
+                      </span>
+                    </div>
+                    
+                    {/* Comments and time */}
+                    <div className="text-sm text-gray-500 mb-1">
+                      Посмотреть все комментарии ({Math.floor(Math.random() * 50) + 5})
+                    </div>
+                    <div className="text-xs text-gray-400">
+                      {Math.floor(Math.random() * 7) + 1} {Math.floor(Math.random() * 7) + 1 === 1 ? 'день' : 'дня'} назад
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-
+            ))}
+          </div>
         </div>
 
         {/* Bottom section */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-6 bg-white/40 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg">
+          <div className="inline-flex items-center space-x-6 bg-white/10 backdrop-blur-md rounded-full px-8 py-4 shadow-xl border border-white/20">
             <button 
-              className="flex items-center px-6 py-3 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 font-medium"
-              onClick={() => window.open('https://youtube.com/@azaluk', '_blank')}
+              className="flex items-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 font-medium shadow-lg"
+              onClick={() => window.open('https://instagram.com/azaluk', '_blank')}
             >
-              <Icon name="ExternalLink" size={16} className="mr-2" />
-              смотреть все работы
+              <Icon name="Instagram" size={16} className="mr-2" />
+              смотреть в инстаграм
             </button>
             <button 
-              className="flex items-center px-6 py-3 border border-forest text-forest rounded-full hover:bg-forest hover:text-cream transition-all duration-300 font-medium"
+              className="flex items-center px-6 py-3 border border-white/30 text-cream rounded-full hover:bg-white/10 transition-all duration-300 font-medium"
               onClick={() => window.open('https://t.me/azaluk', '_blank')}
             >
               <Icon name="MessageCircle" size={16} className="mr-2" />
-              обсудить проект
+              написать
             </button>
           </div>
         </div>
