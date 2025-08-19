@@ -29,7 +29,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 px-4 bg-muted/30 relative">
+    <section id="services" className="py-16 px-4 relative">
       <div className="container mx-auto">
         {/* Decorative elements for mobile */}
         <div className="md:hidden mb-8">
