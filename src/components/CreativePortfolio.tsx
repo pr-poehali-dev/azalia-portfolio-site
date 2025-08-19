@@ -91,18 +91,27 @@ const CreativePortfolio = () => {
   return (
     <section className="py-20 px-4 bg-cream text-forest">
       <div className="container mx-auto max-w-7xl">
-        {/* Uniform Grid Layout with Folder Shapes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Fan Layout with Overlapping Folders */}
+        <div className="relative flex justify-center items-center min-h-[400px]">
           {portfolioItems.map((item, index) => (
-            <div key={item.id} className="relative">
+            <div 
+              key={item.id} 
+              className="absolute"
+              style={{
+                transform: `rotate(${(index - 4) * 8}deg) translateY(${Math.abs(index - 4) * 10}px)`,
+                zIndex: hoveredItem === index ? 20 : 10 - Math.abs(index - 4),
+                transformOrigin: 'center bottom'
+              }}
+            >
               {/* Folder shape container */}
               <div 
-                className="relative group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 hover:-rotate-1"
+                className="relative group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-110"
                 onMouseEnter={() => setHoveredItem(index)}
                 onMouseLeave={() => setHoveredItem(null)}
                 style={{
+                  width: '220px',
                   height: '280px',
-                  clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                  clipPath: 'polygon(0% 15%, 20% 15%, 25% 0%, 100% 0%, 100% 100%, 0% 100%)',
                   backgroundColor: '#a8a693'
                 }}
               >
@@ -110,10 +119,10 @@ const CreativePortfolio = () => {
                 <div 
                   className="absolute top-0 left-0"
                   style={{
-                    width: '30%',
+                    width: '25%',
                     height: '15%',
                     backgroundColor: '#8b7f6b',
-                    clipPath: 'polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%)'
+                    clipPath: 'polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)'
                   }}
                 ></div>
 
@@ -124,7 +133,7 @@ const CreativePortfolio = () => {
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     style={{
-                      clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                      clipPath: 'polygon(0% 15%, 20% 15%, 25% 0%, 100% 0%, 100% 100%, 0% 100%)'
                     }}
                   />
                   
@@ -132,7 +141,7 @@ const CreativePortfolio = () => {
                   <div 
                     className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
                     style={{
-                      clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                      clipPath: 'polygon(0% 15%, 20% 15%, 25% 0%, 100% 0%, 100% 100%, 0% 100%)'
                     }}
                   ></div>
 
