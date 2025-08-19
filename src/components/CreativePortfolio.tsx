@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 
 const CreativePortfolio = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
   const portfolioItems = [
     {
       id: '01',
@@ -68,41 +70,62 @@ const CreativePortfolio = () => {
     setCurrentIndex((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   return (
     <section className="py-12 px-4 bg-cream">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-2xl">
         
-        {/* Title and navigation */}
-        <div className="text-center mb-2">
 
-          
-          {/* Navigation arrows */}
-          <div className="flex justify-between items-center mb-2">
-            <button 
-              onClick={prevSlide}
-              className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
-            >
-              <span className="text-lg font-mono">{"<<<"}</span>
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="text-forest/60 hover:text-forest transition-colors cursor-pointer"
-            >
-              <span className="text-lg font-mono">{">>>"}</span>
-            </button>
-          </div>
-        </div>
 
         {/* Carousel */}
         <div className="relative overflow-hidden">
+          {/* Desktop navigation arrows */}
+          <button 
+            onClick={prevSlide}
+            className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+          >
+            <Icon name="ChevronLeft" size={20} />
+          </button>
+          <button 
+            onClick={nextSlide}
+            className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+          >
+            <Icon name="ChevronRight" size={20} />
+          </button>
+          
           <div 
-            className="flex transition-transform duration-500 ease-out"
+            className="flex transition-transform duration-500 ease-out touch-pan-x"
             style={{
               transform: `translateX(-${currentIndex * 100}%)`
             }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {portfolioItems.map((item, index) => (
-              <div key={item.id} className="w-full flex-shrink-0 px-4">
+              <div key={item.id} className="w-full flex-shrink-0 px-2">
                 <div className="relative group cursor-pointer">
                   <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
                     <img 
@@ -154,25 +177,7 @@ const CreativePortfolio = () => {
           </div>
         </div>
 
-        {/* Bottom section */}
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-4 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-forest/20">
-            <button 
-              className="flex items-center px-4 py-2 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 font-medium text-sm"
-              onClick={() => window.open('https://youtube.com/@azaluk', '_blank')}
-            >
-              <Icon name="ExternalLink" size={14} className="mr-2" />
-              смотреть все работы
-            </button>
-            <button 
-              className="flex items-center px-4 py-2 border border-forest text-forest rounded-full hover:bg-forest hover:text-cream transition-all duration-300 font-medium text-sm"
-              onClick={() => window.open('https://t.me/azaluk', '_blank')}
-            >
-              <Icon name="MessageCircle" size={14} className="mr-2" />
-              написать
-            </button>
-          </div>
-        </div>
+
       </div>
     </section>
   );
