@@ -47,12 +47,11 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
               <DecorativeLines type="curved" className="mb-6 opacity-60" />
               
               <div className="prose prose-lg text-center">
-                <p className="text-foreground/90 leading-relaxed lowercase text-center my-0.5">я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры. 
-
-больше 3-х лет я создаю атмосферные видео на youtube, участвую в мероприятиях в качестве лайф-фотографа и помогаю сохранить теплые воспоминания и эмоции о важных событиях нашей жизни.</p>
-                <p className="text-foreground/90 leading-relaxed mt-4 lowercase">делаю живые фотографии и видео без тяжёлой обработки, отдаю быстро и бережно. здесь вы поймёте мой стиль и сразу увидите, подходит ли он вам.
-
-</p>
+                <p className="text-foreground/90 leading-relaxed lowercase text-center my-0.5">я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры.</p>
+                
+                <p className="text-foreground/90 leading-relaxed mt-4 lowercase">больше 3-х лет я создаю атмосферные видео на youtube, участвую в мероприятиях в качестве лайф-фотографа и помогаю сохранить теплые воспоминания и эмоции о важных событиях нашей жизни.</p>
+                
+                <p className="text-foreground/90 leading-relaxed mt-4 lowercase">делаю живые фотографии и видео без тяжёлой обработки, отдаю быстро и бережно. здесь вы поймёте мой стиль и сразу увидите, подходит ли он вам.</p>
               </div>
               
               <DecorativeLines type="dashed" className="my-6 opacity-50" />
