@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 
 import AboutSection from '@/components/AboutSection';
 import CreativePortfolio from '@/components/CreativePortfolio';
-
+import ServicesSection from '@/components/ServicesSection';
 import VlogSection from '@/components/VlogSection';
 import OtherSections from '@/components/OtherSections';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -22,7 +22,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'vlog', 'reviews', 'contacts'];
+      const sections = ['hero', 'about', 'services', 'vlog', 'collaboration', 'reviews', 'support', 'contacts'];
       const scrollPos = window.scrollY + 100;
 
       // Show/hide scroll to top button
@@ -47,8 +47,9 @@ const Index = () => {
 
   const navItems = [
     { id: 'about', label: 'обо мне' },
-    { id: 'reviews', label: 'отзывы' },
-    { id: 'contacts', label: 'контакты' }
+    { id: 'services', label: 'услуги' },
+    { id: 'collaboration', label: 'сотрудничество' },
+    { id: 'support', label: 'поддержать' }
   ];
 
   const filmStrip = [
@@ -76,7 +77,7 @@ const Index = () => {
 
       <CreativePortfolio />
 
-
+      <ServicesSection />
 
       <VlogSection />
 
