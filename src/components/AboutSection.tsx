@@ -16,7 +16,7 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Mobile-first layout with film strip */}
             <div className="md:hidden">
-              <h2 className="font-montserrat font-bold text-accent uppercase text-center text-2xl my-[25px]">привет, я азалия!</h2>
+              <h2 className="font-montserrat font-bold text-accent uppercase text-center text-2xl my-5">привет, я азалия!</h2>
               
               {/* Vertical film strip for mobile */}
               <div className="relative mb-6">
