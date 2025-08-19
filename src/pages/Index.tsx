@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 
 import AboutSection from '@/components/AboutSection';
+import CreativePortfolio from '@/components/CreativePortfolio';
 import ServicesSection from '@/components/ServicesSection';
 import VlogSection from '@/components/VlogSection';
 import OtherSections from '@/components/OtherSections';
@@ -73,6 +74,8 @@ const Index = () => {
 
 
       <AboutSection filmStrip={filmStrip} />
+
+      <CreativePortfolio />
 
       <ServicesSection />
 
