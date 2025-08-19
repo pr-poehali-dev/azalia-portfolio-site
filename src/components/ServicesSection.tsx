@@ -52,7 +52,14 @@ const ServicesSection = () => {
             <Card key={index} className="bg-card border-border hover:bg-card/80 transition-colors">
               <CardContent className="p-6">
                 <div className="mb-4">
-                  <Icon name={service.icon} size={32} className="text-accent mb-3" />
+                  {service.title === 'лайф-съемка событий' ? (
+                    <div className="flex space-x-2 mb-3">
+                      <Icon name="Camera" size={32} className="text-accent" />
+                      <Icon name="Video" size={32} className="text-accent" />
+                    </div>
+                  ) : (
+                    <Icon name={service.icon} size={32} className="text-accent mb-3" />
+                  )}
                   <h3 className="text-xl font-montserrat font-bold mb-3 uppercase">{service.title}</h3>
                 </div>
                 <p className="text-muted-foreground mb-4 leading-relaxed lowercase">
