@@ -7,7 +7,7 @@ const VlogSection = () => {
     <section id="vlog" className="py-16 px-4 relative">
       <div className="container mx-auto max-w-4xl px-0">
         {/* Mobile-optimized layout */}
-        <div className="bg-forest text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden">
+        <div className="text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden" style={{ backgroundColor: '#2a1e16' }}>
           {/* Decorative background pattern */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-10 right-10 w-20 h-20 border border-cream/20 rounded-full"></div>
@@ -29,14 +29,14 @@ const VlogSection = () => {
             <div className="space-y-6 mb-10">
               <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 my-0 py-[5px] px-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
-                  <Icon name="Video" size={24} className="text-cream" />
+                  <Icon name="MapPin" size={24} className="text-cream" />
                 </div>
                 <span className="font-medium lowercase text-base">готова рассмотреть проекты вне Москвы</span>
               </div>
               
               <div className="flex items-center space-x-4 bg-forest/50 p-4 border border-cream/20 py-[5px] rounded-2xl px-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
-                  <Icon name="Clock" size={24} className="text-cream" />
+                  <Icon name="DollarSign" size={24} className="text-cream" />
                 </div>
                 <span className="font-medium lowercase text-base">точная стоимость рассчитывается исходя из продолжительности мероприятия и деталей-пожеланий заказчика</span>
               </div>
