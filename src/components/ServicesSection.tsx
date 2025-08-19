@@ -38,14 +38,7 @@ const ServicesSection = () => {
         
         <h2 className="text-4xl font-montserrat font-bold text-center uppercase my-5 text-amber-50">услуги</h2>
         
-        {/* Mobile film strip */}
-        <div className="md:hidden flex justify-center mb-8">
-          <FilmStrip 
-            images={serviceImages} 
-            orientation="horizontal" 
-            className="max-w-xs"
-          />
-        </div>
+
         
         <div className="grid md:grid-cols-2 gap-8 mb-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
