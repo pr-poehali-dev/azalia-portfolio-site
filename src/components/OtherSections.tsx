@@ -55,9 +55,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
             size="lg"
             className="bg-accent text-accent-foreground hover:bg-accent/80"
             onClick={() => window.open('https://t.me/azaluk', '_blank')}
-          >
-            обсудить коллаборацию
-          </Button>
+          >обсудить сотрудничество</Button>
         </div>
       </section>
 
