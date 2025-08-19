@@ -4,7 +4,7 @@ import DecorativeLines from './DecorativeLines';
 
 const VlogSection = () => {
   return (
-    <section id="vlog" className="py-16 px-4 relative">
+    <section id="vlog" className="py-16 px-4 relative" style={{ backgroundColor: '#2a1e16' }}>
       <div className="container mx-auto max-w-4xl px-0">
         {/* Mobile-optimized layout */}
         <div className="text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden" style={{ backgroundColor: '#2a1e16' }}>
@@ -29,14 +29,14 @@ const VlogSection = () => {
             <div className="space-y-6 mb-10">
               <div className="flex items-center space-x-4 bg-forest/50 rounded-2xl p-4 border border-cream/20 my-0 py-[5px] px-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
-                  <Icon name="MapPin" size={24} className="text-cream" />
+                  <Icon name="Ticket" size={24} className="text-cream" />
                 </div>
                 <span className="font-medium lowercase text-base">готова рассмотреть проекты вне Москвы</span>
               </div>
               
               <div className="flex items-center space-x-4 bg-forest/50 p-4 border border-cream/20 py-[5px] rounded-2xl px-[5px]">
                 <div className="flex-shrink-0 w-12 h-12 bg-cream/20 rounded-full flex items-center justify-center">
-                  <Icon name="DollarSign" size={24} className="text-cream" />
+                  <Icon name="Wallet" size={24} className="text-cream" />
                 </div>
                 <span className="font-medium lowercase text-base">точная стоимость рассчитывается исходя из продолжительности мероприятия и деталей-пожеланий заказчика</span>
               </div>
