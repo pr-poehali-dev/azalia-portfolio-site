@@ -164,7 +164,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                   key={index}
                   onClick={() => setCurrentReview(index * 3)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    Math.floor(currentReview / 3) === index ? 'bg-sand w-6' : 'bg-sand/30'
+                    Math.floor(currentReview / 3) === index ? 'bg-cream w-6' : 'bg-cream/40'
                   }`}
                 />
               ))}
@@ -235,7 +235,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                   key={index}
                   onClick={() => setCurrentReview(index)}
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    index === currentReview ? 'bg-sand w-4' : 'bg-sand/30'
+                    index === currentReview ? 'bg-cream w-4' : 'bg-cream/40'
                   }`}
                 />
               ))}
