@@ -85,30 +85,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
 
   return (
     <>
-      {/* Collaboration Section */}
-      <section id="collaboration" className="py-16 px-4 bg-cream text-forest">
-        <div className="container mx-auto max-w-4xl text-center px-0">
-          <h2 className="font-montserrat font-bold text-accent uppercase my-0 text-3xl">сотрудничество</h2>
-          <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
-            я открыта к тёплым коллаборациям и аккуратным интеграциям — только то, что резонирует с атмосферой канала (slow life, велнесс, творчество, места силы, уютные бренды).
-            <br /><br />
-            форматы:
-            <br />
-            — интеграции во влоги
-            <br />
-            — прямая реклама
-            <br />
-            — совместные проекты
-            <br /><br />
-            напишите, придумаем красиво!
-          </p>
-          <Button 
-            size="lg"
-            className="bg-accent text-accent-foreground hover:bg-accent/80"
-            onClick={() => window.open('https://t.me/azaluk', '_blank')}
-          >обсудить сотрудничество</Button>
-        </div>
-      </section>
+
 
       {/* Reviews Section */}
       <section id="reviews" className="py-16 px-4">
@@ -244,32 +221,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
         </div>
       </section>
 
-      {/* Support Section */}
-      <section id="support" className="py-16 px-4 bg-cream text-forest">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase">поддержать проект</h2>
-          <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
-            если мои видео греют душу — можно "угостить меня кофе" ☕️. 
-            ваша поддержка превращается в новые тёплые истории.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-            >
-              boosty
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-            >
-              vk донаты
-            </Button>
-          </div>
-        </div>
-      </section>
+
 
       {/* Contacts Section */}
       <section id="contacts" className="py-16 px-4">
