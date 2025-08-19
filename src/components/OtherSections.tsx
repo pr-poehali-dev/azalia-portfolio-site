@@ -42,16 +42,6 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       text: 'атмосфера в видео настолько уютная, что хочется оказаться там прямо сейчас.',
       author: 'Мария К.',
       role: 'зрительница'
-    },
-    {
-      text: 'спасибо за честность в кадре. ваши работы помогают принимать себя такой, какая есть.',
-      author: 'София',
-      role: 'подписчица'
-    },
-    {
-      text: 'профессионально и с огромной любовью. рекомендую всем друзьям!',
-      author: 'Екатерина',
-      role: 'клиентка'
     }
   ];
 
@@ -181,50 +171,60 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
             </div>
           </div>
 
-          {/* Mobile - карусель с одним отзывом */}
+          {/* Mobile - карусель с peek эффектом */}
           <div className="md:hidden relative">
-            {/* Navigation arrows */}
-            <button 
-              onClick={prevReview}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
-            >
-              <Icon name="ChevronLeft" size={20} />
-            </button>
-            <button 
-              onClick={nextReview}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
-            >
-              <Icon name="ChevronRight" size={20} />
-            </button>
-
-            {/* Mobile carousel container */}
-            <div 
-              className="overflow-hidden px-10"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              <div 
-                className="flex transition-transform duration-500 ease-out"
-                style={{
-                  transform: `translateX(-${currentReview * 100}%)`
-                }}
-              >
-                {reviews.map((review, index) => (
-                  <div key={index} className="flex-shrink-0 w-full px-2">
-                    <Card className="bg-card border-border h-28">
-                      <CardContent className="p-4 h-full flex flex-col justify-between">
-                        <p className="text-foreground/90 text-sm italic leading-snug line-clamp-2">
-                          "{review.text}"
+            {/* Mobile carousel container with peek effect */}
+            <div className="flex items-center w-full overflow-hidden">
+              {/* Left peek - показываем предыдущий отзыв */}
+              <div className="flex-shrink-0 w-16 opacity-50 scale-90 -mr-2 z-0">
+                {(() => {
+                  const prevIndex = currentReview === 0 ? reviews.length - 1 : currentReview - 1;
+                  return (
+                    <Card className="bg-card/60 border-border h-20">
+                      <CardContent className="p-2 h-full flex items-center">
+                        <p className="text-foreground/60 text-xs leading-tight line-clamp-3">
+                          "{reviews[prevIndex].text}"
                         </p>
-                        <div className="text-right mt-2">
-                          <div className="font-semibold text-accent text-sm">— {review.author}</div>
-                          <div className="text-xs text-muted-foreground">{review.role}</div>
-                        </div>
                       </CardContent>
                     </Card>
-                  </div>
-                ))}
+                  );
+                })()}
+              </div>
+
+              {/* Main review - центральный отзыв */}
+              <div 
+                className="flex-1 px-4 z-10"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                <Card className="bg-card border-border h-28 shadow-lg">
+                  <CardContent className="p-4 h-full flex flex-col justify-between">
+                    <p className="text-foreground/90 text-sm italic leading-snug line-clamp-2">
+                      "{reviews[currentReview].text}"
+                    </p>
+                    <div className="text-right mt-2">
+                      <div className="font-semibold text-accent text-sm">— {reviews[currentReview].author}</div>
+                      <div className="text-xs text-muted-foreground">{reviews[currentReview].role}</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Right peek - показываем следующий отзыв */}
+              <div className="flex-shrink-0 w-16 opacity-50 scale-90 -ml-2 z-0">
+                {(() => {
+                  const nextIndex = currentReview === reviews.length - 1 ? 0 : currentReview + 1;
+                  return (
+                    <Card className="bg-card/60 border-border h-20">
+                      <CardContent className="p-2 h-full flex items-center">
+                        <p className="text-foreground/60 text-xs leading-tight line-clamp-3">
+                          "{reviews[nextIndex].text}"
+                        </p>
+                      </CardContent>
+                    </Card>
+                  );
+                })()}
               </div>
             </div>
 
