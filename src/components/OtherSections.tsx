@@ -172,17 +172,17 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
           </div>
 
           {/* Mobile - карусель с peek эффектом */}
-          <div className="md:hidden relative">
+          <div className="md:hidden relative -mx-4">
             {/* Mobile carousel container with peek effect */}
-            <div className="flex items-center w-full overflow-hidden">
-              {/* Left peek - показываем предыдущий отзыв */}
-              <div className="flex-shrink-0 w-16 opacity-50 scale-90 -mr-2 z-0">
+            <div className="flex items-center w-full">
+              {/* Left peek - выглядывает из-за левого края */}
+              <div className="flex-shrink-0 w-20 scale-90 -ml-8 z-0">
                 {(() => {
                   const prevIndex = currentReview === 0 ? reviews.length - 1 : currentReview - 1;
                   return (
-                    <Card className="bg-card/60 border-border h-20">
+                    <Card className="bg-card border-border h-20">
                       <CardContent className="p-2 h-full flex items-center">
-                        <p className="text-foreground/60 text-xs leading-tight line-clamp-3">
+                        <p className="text-foreground/90 text-xs leading-tight line-clamp-3">
                           "{reviews[prevIndex].text}"
                         </p>
                       </CardContent>
@@ -211,14 +211,14 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                 </Card>
               </div>
 
-              {/* Right peek - показываем следующий отзыв */}
-              <div className="flex-shrink-0 w-16 opacity-50 scale-90 -ml-2 z-0">
+              {/* Right peek - выглядывает из-за правого края */}
+              <div className="flex-shrink-0 w-20 scale-90 -mr-8 z-0">
                 {(() => {
                   const nextIndex = currentReview === reviews.length - 1 ? 0 : currentReview + 1;
                   return (
-                    <Card className="bg-card/60 border-border h-20">
+                    <Card className="bg-card border-border h-20">
                       <CardContent className="p-2 h-full flex items-center">
-                        <p className="text-foreground/60 text-xs leading-tight line-clamp-3">
+                        <p className="text-foreground/90 text-xs leading-tight line-clamp-3">
                           "{reviews[nextIndex].text}"
                         </p>
                       </CardContent>
