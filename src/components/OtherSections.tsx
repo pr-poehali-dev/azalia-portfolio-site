@@ -39,9 +39,17 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
         <div className="container mx-auto max-w-4xl text-center px-0">
           <h2 className="font-montserrat font-bold text-accent uppercase my-0 text-3xl">сотрудничество</h2>
           <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
-            открыта к тёплым коллаборациям и аккуратным интеграциям — только то, что резонирует с атмосферой канала 
-            (slow life, велнесс, творчество, места силы, уютные бренды). форматы: интеграции во влоги, съёмка контента, 
-            совместные проекты. напишите, придумаем красиво.
+            я открыта к тёплым коллаборациям и аккуратным интеграциям — только то, что резонирует с атмосферой канала (slow life, велнесс, творчество, места силы, уютные бренды).
+            <br /><br />
+            форматы:
+            <br />
+            — интеграции во влоги
+            <br />
+            — прямая реклама
+            <br />
+            — совместные проекты
+            <br /><br />
+            напишите, придумаем красиво!
           </p>
           <Button 
             size="lg"
