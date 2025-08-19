@@ -47,7 +47,6 @@ const Index = () => {
   const navItems = [
     { id: 'about', label: 'обо мне' },
     { id: 'services', label: 'услуги' },
-    { id: 'vlog', label: 'влог под ключ' },
     { id: 'collaboration', label: 'сотрудничество' },
     { id: 'support', label: 'поддержать' }
   ];
