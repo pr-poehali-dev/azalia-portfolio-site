@@ -27,6 +27,31 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       text: 'влог об открытии студии передал атмосферу до мурашек. гости пересылают друзьям!',
       author: 'команда пространства',
       role: 'клиенты'
+    },
+    {
+      text: 'каждый кадр пронизан душой. смотрю и чувствую, что не одинока в своих переживаниях.',
+      author: 'Алёна',
+      role: 'подписчица'
+    },
+    {
+      text: 'монтаж превзошёл ожидания! простые моменты стали волшебными воспоминаниями.',
+      author: 'Дмитрий',
+      role: 'клиент'
+    },
+    {
+      text: 'атмосфера в видео настолько уютная, что хочется оказаться там прямо сейчас.',
+      author: 'Мария К.',
+      role: 'зрительница'
+    },
+    {
+      text: 'спасибо за честность в кадре. ваши работы помогают принимать себя такой, какая есть.',
+      author: 'София',
+      role: 'подписчица'
+    },
+    {
+      text: 'профессионально и с огромной любовью. рекомендую всем друзьям!',
+      author: 'Екатерина',
+      role: 'клиентка'
     }
   ];
 
@@ -97,24 +122,63 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
 
       {/* Reviews Section */}
       <section id="reviews" className="py-16 px-4">
-        <div className="container mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-montserrat font-bold text-center mb-12 uppercase text-amber-50">отзывы</h2>
           
-          {/* Desktop - все отзывы видны */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <Card key={index} className="bg-card border-border">
-                <CardContent className="p-6">
-                  <p className="text-foreground/90 leading-relaxed mb-4 italic">
-                    "{review.text}"
-                  </p>
-                  <div className="text-right">
-                    <div className="font-semibold text-accent">— {review.author}</div>
-                    <div className="text-sm text-muted-foreground">{review.role}</div>
+          {/* Desktop - карусель с тремя отзывами */}
+          <div className="hidden md:block relative">
+            {/* Navigation arrows */}
+            <button 
+              onClick={prevReview}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-300"
+            >
+              <Icon name="ChevronLeft" size={24} />
+            </button>
+            <button 
+              onClick={nextReview}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-300"
+            >
+              <Icon name="ChevronRight" size={24} />
+            </button>
+
+            {/* Desktop carousel container */}
+            <div className="overflow-hidden px-16">
+              <div 
+                className="flex transition-transform duration-500 ease-out gap-6"
+                style={{
+                  transform: `translateX(-${currentReview * (100/3)}%)`
+                }}
+              >
+                {reviews.map((review, index) => (
+                  <div key={index} className="flex-shrink-0 w-1/3">
+                    <Card className="bg-card border-border h-32">
+                      <CardContent className="p-4 h-full flex flex-col justify-between">
+                        <p className="text-foreground/90 text-sm italic leading-snug line-clamp-3">
+                          "{review.text}"
+                        </p>
+                        <div className="text-right mt-2">
+                          <div className="font-semibold text-accent text-sm">— {review.author}</div>
+                          <div className="text-xs text-muted-foreground">{review.role}</div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop dots indicator */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {Array.from({ length: Math.ceil(reviews.length / 3) }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentReview(index * 3)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    Math.floor(currentReview / 3) === index ? 'bg-accent w-6' : 'bg-accent/30'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Mobile - карусель с одним отзывом */}
@@ -122,20 +186,20 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
             {/* Navigation arrows */}
             <button 
               onClick={prevReview}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
             >
               <Icon name="ChevronLeft" size={20} />
             </button>
             <button 
               onClick={nextReview}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
             >
               <Icon name="ChevronRight" size={20} />
             </button>
 
-            {/* Carousel container */}
+            {/* Mobile carousel container */}
             <div 
-              className="overflow-hidden px-8"
+              className="overflow-hidden px-10"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -148,14 +212,14 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
               >
                 {reviews.map((review, index) => (
                   <div key={index} className="flex-shrink-0 w-full px-2">
-                    <Card className="bg-card border-border">
-                      <CardContent className="p-6">
-                        <p className="text-foreground/90 leading-relaxed mb-4 italic">
+                    <Card className="bg-card border-border h-28">
+                      <CardContent className="p-4 h-full flex flex-col justify-between">
+                        <p className="text-foreground/90 text-sm italic leading-snug line-clamp-2">
                           "{review.text}"
                         </p>
-                        <div className="text-right">
-                          <div className="font-semibold text-accent">— {review.author}</div>
-                          <div className="text-sm text-muted-foreground">{review.role}</div>
+                        <div className="text-right mt-2">
+                          <div className="font-semibold text-accent text-sm">— {review.author}</div>
+                          <div className="text-xs text-muted-foreground">{review.role}</div>
                         </div>
                       </CardContent>
                     </Card>
@@ -164,14 +228,14 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
               </div>
             </div>
 
-            {/* Dots indicator */}
-            <div className="flex justify-center mt-6 space-x-2">
+            {/* Mobile dots indicator */}
+            <div className="flex justify-center mt-6 space-x-1">
               {reviews.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentReview(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentReview ? 'bg-accent w-6' : 'bg-accent/30'
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                    index === currentReview ? 'bg-accent w-4' : 'bg-accent/30'
                   }`}
                 />
               ))}
