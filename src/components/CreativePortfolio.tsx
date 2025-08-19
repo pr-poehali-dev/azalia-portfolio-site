@@ -99,8 +99,8 @@ const CreativePortfolio = () => {
         
 
 
-        {/* Carousel with peek effect */}
-        <div className="relative overflow-hidden">
+        {/* Carousel with centered main image and side previews */}
+        <div className="relative">
           {/* Desktop navigation arrows */}
           <button 
             onClick={prevSlide}
@@ -115,62 +115,73 @@ const CreativePortfolio = () => {
             <Icon name="ChevronRight" size={20} />
           </button>
           
-          <div className="px-8 md:px-16">
+          <div className="flex items-center justify-center overflow-hidden">
+            {/* Left preview */}
+            <div className="hidden md:block w-32 opacity-40 scale-75 transition-all duration-500">
+              {currentIndex > 0 && (
+                <div className="relative h-64 overflow-hidden rounded-xl">
+                  <img 
+                    src={portfolioItems[currentIndex - 1].image} 
+                    alt={portfolioItems[currentIndex - 1].title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Main centered image */}
             <div 
-              className="flex transition-transform duration-500 ease-out touch-pan-x"
-              style={{
-                transform: `translateX(calc(-${currentIndex * 100}% + ${currentIndex * 32}px))`
-              }}
+              className="flex-1 max-w-2xl mx-4 transition-all duration-500"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              {portfolioItems.map((item, index) => (
-                <div 
-                  key={item.id} 
-                  className={`flex-shrink-0 px-2 transition-all duration-500 ${
-                    index === currentIndex 
-                      ? 'w-full opacity-100 scale-100' 
-                      : 'w-4/5 opacity-60 scale-95'
-                  }`}
-                >
-                  <div className="relative group cursor-pointer">
-                    <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      
-                      {/* Type indicator */}
-                      {item.type === 'video' && (
-                        <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 text-white text-sm flex items-center">
-                          <Icon name="Play" size={16} className="mr-2" />
-                          {item.duration}
-                        </div>
-                      )}
-                      
-                      {/* Content overlay - только для активного слайда */}
-                      {index === currentIndex && (
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                          <div className="text-xs font-mono opacity-70 mb-2">({item.id})</div>
-                          <h3 className="text-xl font-montserrat font-bold uppercase mb-3 leading-tight">
-                            {item.title}
-                          </h3>
-                          <p className="text-sm opacity-90 lowercase leading-relaxed">
-                            {item.description.length > 150 
-                              ? `${item.description.substring(0, 150)}...` 
-                              : item.description}
-                          </p>
-                        </div>
-                      )}
+              <div className="relative group cursor-pointer">
+                <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
+                  <img 
+                    src={portfolioItems[currentIndex].image} 
+                    alt={portfolioItems[currentIndex].title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  
+                  {/* Type indicator */}
+                  {portfolioItems[currentIndex].type === 'video' && (
+                    <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 text-white text-sm flex items-center">
+                      <Icon name="Play" size={16} className="mr-2" />
+                      {portfolioItems[currentIndex].duration}
                     </div>
+                  )}
+                  
+                  {/* Content overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <div className="text-xs font-mono opacity-70 mb-2">({portfolioItems[currentIndex].id})</div>
+                    <h3 className="text-xl font-montserrat font-bold uppercase mb-3 leading-tight">
+                      {portfolioItems[currentIndex].title}
+                    </h3>
+                    <p className="text-sm opacity-90 lowercase leading-relaxed">
+                      {portfolioItems[currentIndex].description.length > 150 
+                        ? `${portfolioItems[currentIndex].description.substring(0, 150)}...` 
+                        : portfolioItems[currentIndex].description}
+                    </p>
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* Right preview */}
+            <div className="hidden md:block w-32 opacity-40 scale-75 transition-all duration-500">
+              {currentIndex < portfolioItems.length - 1 && (
+                <div className="relative h-64 overflow-hidden rounded-xl">
+                  <img 
+                    src={portfolioItems[currentIndex + 1].image} 
+                    alt={portfolioItems[currentIndex + 1].title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
             </div>
           </div>
           
