@@ -1,348 +1,317 @@
-import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 
 const CreativePortfolio = () => {
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-  const [selectedItem, setSelectedItem] = useState<number | null>(null);
-  const [isExpanded, setIsExpanded] = useState(false);
-
   const portfolioItems = [
     {
       id: '01',
-      title: 'культурное пространство',
-      subtitle: 'освящение гэс-2',
-      category: 'видеоблог',
+      title: 'культурное пространство гэс-2',
+      description: 'атмосферное освящение современного арт-центра через призму архитектуры и человеческих эмоций',
       image: '/img/9ba3555b-e97f-4b95-816d-667805624185.jpg',
       duration: '12:34',
-      type: 'video'
+      type: 'video',
+      color: '#d4a574'
     },
     {
       id: '02', 
-      title: 'путешествие-ретрит',
-      subtitle: 'поездка на перезагрузку',
-      category: 'путешествие',
+      title: 'путешествие на ретрит',
+      description: 'история внутренней трансформации через смену пространства и погружение в практики осознанности',
       image: '/img/c79bdef9-1d6a-4f7d-9fb7-57977e73666f.jpg',
       duration: '18:45',
-      type: 'video'
+      type: 'video',
+      color: '#6b8aa0'
     },
     {
       id: '03',
-      title: 'база отдыха',
-      subtitle: 'уикенд на природе',
-      category: 'лайфстайл',
+      title: 'уикенд на базе отдыха',
+      description: 'простые радости загородной жизни, где каждый момент наполнен присутствием и благодарностью',
       image: '/img/c79bdef9-1d6a-4f7d-9fb7-57977e73666f.jpg',
       duration: '09:12',
-      type: 'video'
+      type: 'video',
+      color: '#8b7a6b'
     },
     {
       id: '04',
-      title: 'распаковка',
-      subtitle: 'новые находки',
-      category: 'обзор',
-      image: '/img/c79bdef9-1d6a-4f7d-9fb7-57977e73666f.jpg',
-      duration: '06:28',
-      type: 'video'
+      title: 'медитативная лепка',
+      description: 'процесс создания через прикосновение к глине становится метафорой внутреннего творчества',
+      image: '/img/0e64baa5-9fcc-433e-bd61-143e7fa9bdb6.jpg',
+      duration: '15:17',
+      type: 'video',
+      color: '#a67c52'
     },
     {
       id: '05',
-      title: 'лепка из глины',
-      subtitle: 'творческий процесс',
-      category: 'творчество',
-      image: '/img/0e64baa5-9fcc-433e-bd61-143e7fa9bdb6.jpg',
-      duration: '15:17',
-      type: 'video'
+      title: 'женский ретрит в природе',
+      description: 'совместный опыт исцеления и поддержки в кругу единомышленниц среди лесной тишины',
+      image: '/img/c79bdef9-1d6a-4f7d-9fb7-57977e73666f.jpg',
+      duration: '45 фото',
+      type: 'photo',
+      color: '#7a8471'
     },
     {
       id: '06',
-      title: 'поехали! сервис',
-      subtitle: 'обзор ии-платформы',
-      category: 'технологии',
-      image: '/img/9ba3555b-e97f-4b95-816d-667805624185.jpg',
-      duration: '11:03',
-      type: 'video'
-    },
-    {
-      id: '07',
-      title: 'женский ретрит',
-      subtitle: 'съемка мероприятия',
-      category: 'событие',
-      image: '/img/c79bdef9-1d6a-4f7d-9fb7-57977e73666f.jpg',
-      duration: '45 фото',
-      type: 'photo'
-    },
-    {
-      id: '08',
-      title: 'випассана',
-      subtitle: 'медитативная практика',
-      category: 'духовность',
+      title: 'випассана практика',
+      description: 'документирование глубокой медитативной практики и состояний внутренней тишины',
       image: '/img/c79bdef9-1d6a-4f7d-9fb7-57977e73666f.jpg',
       duration: '32 фото',
-      type: 'photo'
-    },
-    {
-      id: '09',
-      title: 'свадебная история',
-      subtitle: 'короткий фильм',
-      category: 'свадьба',
-      image: '/img/c79bdef9-1d6a-4f7d-9fb7-57977e73666f.jpg',
-      duration: '03:24',
-      type: 'video'
+      type: 'photo',
+      color: '#5a5a52'
     }
   ];
 
   return (
     <section className="py-20 px-4 bg-cream text-forest">
       <div className="container mx-auto max-w-7xl">
-        {/* Interactive Fan Layout */}
-        <div className="relative">
-          {/* Header with expand/collapse toggle */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-montserrat font-bold uppercase mb-6 text-forest">портфолио</h2>
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center px-8 py-4 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 hover:scale-105 shadow-lg"
+        {/* Collage Grid Layout */}
+        <div className="grid grid-cols-12 gap-6 auto-rows-auto">
+          
+          {/* First item - Large horizontal */}
+          <div className="col-span-12 md:col-span-8 relative group cursor-pointer">
+            <div 
+              className="relative h-96 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundColor: portfolioItems[0].color }}
             >
-              <Icon name={isExpanded ? "Minimize2" : "Maximize2"} size={18} className="mr-3" />
-              <span className="font-medium">{isExpanded ? 'свернуть веер' : 'развернуть веер'}</span>
-            </button>
-            <p className="text-sm text-forest/70 mt-4 max-w-lg mx-auto lowercase leading-relaxed">
-              {isExpanded 
-                ? 'нажмите на любую папку для выбора проекта • изучайте детали каждой работы' 
-                : 'наведите для предпросмотра • разверните веер для полного погружения в портфолио'
-              }
-            </p>
-          </div>
-
-          {/* Fan container */}
-          <div className="relative flex justify-center items-center min-h-[600px] overflow-hidden">
-            {portfolioItems.map((item, index) => {
-              const isActive = hoveredItem === index || selectedItem === index;
-              const fanRotation = isExpanded ? (index - 4) * 28 : (index - 4) * 8;
-              const fanSpread = isExpanded ? 140 : 60;
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="w-full h-full" style={{
+                  backgroundImage: `radial-gradient(circle at 20% 80%, ${portfolioItems[0].color} 0%, transparent 50%),
+                                   radial-gradient(circle at 80% 20%, ${portfolioItems[0].color} 0%, transparent 50%)`
+                }}></div>
+              </div>
               
-              return (
-                <div 
-                  key={item.id} 
-                  className="absolute transition-all duration-700 ease-out"
-                  style={{
-                    transform: isExpanded 
-                      ? `rotate(${fanRotation}deg) translateY(-${fanSpread}px) scale(${isActive ? 1.15 : 0.95})`
-                      : `rotate(${fanRotation}deg) translateY(${Math.abs(index - 4) * 12}px) scale(${isActive ? 1.08 : 1})`,
-                    zIndex: isActive ? 40 : isExpanded ? 20 : (15 - Math.abs(index - 4)),
-                    transformOrigin: 'center bottom',
-                    filter: isExpanded && !isActive ? 'brightness(0.75) saturate(0.6) blur(0.5px)' : 'none'
-                  }}
-                >
-                  {/* Folder shape container */}
-                  <div 
-                    className="relative group cursor-pointer overflow-hidden transition-all duration-500"
-                    onMouseEnter={() => setHoveredItem(index)}
-                    onMouseLeave={() => setHoveredItem(null)}
-                    onClick={() => {
-                      setSelectedItem(selectedItem === index ? null : index);
-                      if (!isExpanded) setIsExpanded(true);
-                    }}
-                    style={{
-                      width: '250px',
-                      height: '320px',
-                      clipPath: 'polygon(0% 15%, 18% 15%, 23% 0%, 100% 0%, 100% 100%, 0% 100%)',
-                      backgroundColor: isActive ? '#6b5b4d' : '#a8a693',
-                      boxShadow: isActive 
-                        ? '0 25px 50px rgba(0,0,0,0.4), 0 0 0 3px rgba(107, 91, 77, 0.6), 0 0 20px rgba(107, 91, 77, 0.3)' 
-                        : '0 10px 25px rgba(0,0,0,0.2), 0 2px 10px rgba(0,0,0,0.1)'
-                    }}
-                  >
-                    {/* Folder tab with gradient */}
-                    <div 
-                      className="absolute top-0 left-0 transition-all duration-300"
-                      style={{
-                        width: '23%',
-                        height: '15%',
-                        background: isActive 
-                          ? 'linear-gradient(135deg, #5a4d42, #6b5b4d, #7a6b5e)' 
-                          : 'linear-gradient(135deg, #8b7f6b, #a8a693, #b5ab96)',
-                        clipPath: 'polygon(0% 0%, 78% 0%, 100% 100%, 0% 100%)',
-                        boxShadow: 'inset 0 1px 3px rgba(255,255,255,0.2)'
-                      }}
-                    ></div>
-
-                    {/* Ambient glow effect */}
-                    {isActive && (
-                      <div 
-                        className="absolute -inset-4 opacity-60 blur-xl transition-opacity duration-700"
-                        style={{
-                          background: 'radial-gradient(ellipse, rgba(107, 91, 77, 0.4) 0%, rgba(107, 91, 77, 0.2) 40%, transparent 70%)',
-                          clipPath: 'polygon(0% 15%, 18% 15%, 23% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                        }}
-                      ></div>
-                    )}
-
-                    {/* Image container */}
-                    <div className="relative w-full h-full overflow-hidden">
-                      <img 
-                        src={item.image}
-                        alt={item.title}
-                        className={`w-full h-full object-cover transition-all duration-700 ${
-                          isActive ? 'scale-110 brightness-115 contrast-105' : 'group-hover:scale-105 group-hover:brightness-110'
-                        }`}
-                        style={{
-                          clipPath: 'polygon(0% 15%, 18% 15%, 23% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                        }}
-                      />
-                      
-                      {/* Multi-layer gradient overlay */}
-                      <div 
-                        className="absolute inset-0 transition-opacity duration-500"
-                        style={{
-                          background: isActive 
-                            ? 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 70%, transparent 100%)'
-                            : 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 80%)',
-                          clipPath: 'polygon(0% 15%, 18% 15%, 23% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                        }}
-                      ></div>
-
-                      {/* Progress indicator for videos */}
-                      {item.type === 'video' && isActive && (
-                        <div 
-                          className="absolute bottom-20 left-6 right-6 h-1.5 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm"
-                        >
-                          <div 
-                            className="h-full bg-gradient-to-r from-white/60 to-white/80 rounded-full transition-all duration-2000 ease-out"
-                            style={{ width: '42%' }}
-                          ></div>
-                        </div>
-                      )}
-
-                      {/* Enhanced content overlay */}
-                      <div className={`absolute bottom-6 left-6 right-6 text-white transition-all duration-500 ${
-                        isActive ? 'transform translate-y-0 opacity-100' : 'transform translate-y-3 opacity-90'
-                      }`}>
-                        <div className="flex items-center justify-between mb-3">
-                          <div className="text-xs font-mono bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                            ({item.id})
-                          </div>
-                          <div className="flex items-center text-xs bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                            <Icon name={item.type === 'video' ? 'Play' : 'Camera'} size={12} className="mr-2" />
-                            <span className="font-medium">{item.duration}</span>
-                          </div>
-                        </div>
-                        
-                        <h3 className={`font-bold uppercase leading-tight mb-3 transition-all duration-300 ${
-                          isActive ? 'text-2xl tracking-wide' : 'text-lg'
-                        }`}>
-                          {item.title}
-                        </h3>
-                        
-                        <p className={`lowercase leading-tight transition-all duration-300 ${
-                          isActive ? 'text-base line-clamp-3 opacity-95' : 'text-sm line-clamp-2 opacity-85'
-                        }`}>
-                          {item.subtitle}
-                        </p>
-
-                        {/* Category tag with enhanced styling */}
-                        <div className={`inline-block mt-4 px-4 py-2 text-xs uppercase tracking-widest rounded-full transition-all duration-300 font-medium ${
-                          isActive 
-                            ? 'bg-white/25 text-white backdrop-blur-sm border border-white/30 shadow-lg' 
-                            : 'bg-black/25 text-white/90 border border-white/20'
-                        }`}>
-                          {item.category}
-                        </div>
-                      </div>
-
-                      {/* Interactive overlay with glassmorphism */}
-                      <div 
-                        className={`absolute inset-0 transition-all duration-500 ${
-                          isActive ? 'bg-transparent' : 'bg-black/15 opacity-0 group-hover:opacity-100'
-                        }`}
-                        style={{
-                          clipPath: 'polygon(0% 15%, 18% 15%, 23% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                        }}
-                      >
-                        {!isActive && (
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:scale-110">
-                            <div className="w-20 h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-xl">
-                              <Icon name={item.type === 'video' ? 'Play' : 'Eye'} size={28} className="text-white ml-1" />
-                            </div>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Selection indicator */}
-                      {selectedItem === index && (
-                        <div className="absolute top-6 right-6">
-                          <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse shadow-lg border-2 border-white"></div>
-                        </div>
-                      )}
-
-                      {/* Premium shimmer effect */}
-                      {isActive && (
-                        <div 
-                          className="absolute inset-0 opacity-20 animate-pulse"
-                          style={{
-                            background: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)',
-                            clipPath: 'polygon(0% 15%, 18% 15%, 23% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                          }}
-                        ></div>
-                      )}
-                    </div>
-
-                    {/* Enhanced folder edge shadow */}
-                    <div 
-                      className="absolute top-0 left-0 w-full h-full pointer-events-none transition-opacity duration-300"
-                      style={{
-                        background: `linear-gradient(135deg, rgba(0,0,0,${isActive ? 0.2 : 0.12}) 0%, transparent 20%)`,
-                        clipPath: 'polygon(0% 15%, 18% 15%, 23% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                      }}
-                    ></div>
-                  </div>
-
-                  {/* Dynamic label with enhanced typography */}
-                  <div className={`text-center transition-all duration-500 ${
-                    isExpanded ? 'mt-8 opacity-100' : 'mt-5 opacity-80'
-                  }`}>
-                    <div className="text-xs font-mono text-forest/50 mb-2 tracking-wider">file_{item.id}</div>
-                    <h4 className={`font-bold uppercase text-forest tracking-wide transition-all duration-300 ${
-                      isActive ? 'text-xl' : isExpanded ? 'text-base' : 'text-sm'
-                    }`}>
-                      {item.category}
-                    </h4>
-                    {isActive && (
-                      <div className="w-8 h-0.5 bg-forest/30 mx-auto mt-2 transition-all duration-300"></div>
-                    )}
+              {/* Image */}
+              <img 
+                src={portfolioItems[0].image}
+                alt={portfolioItems[0].title}
+                className="absolute right-0 top-0 w-3/5 h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              
+              {/* Content overlay */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                  <div className="text-xs font-mono text-forest/60">({portfolioItems[0].id})</div>
+                  <div className="flex items-center bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white">
+                    <Icon name="Play" size={12} className="mr-1" />
+                    {portfolioItems[0].duration}
                   </div>
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Enhanced action buttons */}
-          {isExpanded && (
-            <div className="text-center mt-16 animate-in slide-in-from-bottom duration-500">
-              <div className="inline-flex items-center space-x-6 bg-white/60 backdrop-blur-md rounded-full px-8 py-5 shadow-xl border border-white/30">
-                <button 
-                  className="flex items-center px-6 py-3 bg-forest text-cream rounded-full hover:bg-forest/90 transition-all duration-300 hover:scale-105 shadow-lg font-medium"
-                  onClick={() => window.open('#', '_blank')}
-                >
-                  <Icon name="ExternalLink" size={18} className="mr-3" />
-                  посмотреть все работы
-                </button>
-                <button 
-                  className="flex items-center px-6 py-3 border-2 border-forest text-forest rounded-full hover:bg-forest hover:text-cream transition-all duration-300 hover:scale-105 font-medium"
-                  onClick={() => window.open('https://t.me/azaluk', '_blank')}
-                >
-                  <Icon name="MessageCircle" size={18} className="mr-3" />
-                  обсудить проект
-                </button>
+                
+                <div className="max-w-md">
+                  <h3 className="text-2xl font-montserrat font-bold uppercase mb-4 text-forest leading-tight">
+                    {portfolioItems[0].title}
+                  </h3>
+                  <p className="text-sm text-forest/80 lowercase leading-relaxed">
+                    {portfolioItems[0].description}
+                  </p>
+                </div>
               </div>
             </div>
-          )}
+          </div>
+
+          {/* Second item - Vertical */}
+          <div className="col-span-12 md:col-span-4 relative group cursor-pointer">
+            <div 
+              className="relative h-96 overflow-hidden transition-all duration-500 hover:scale-[1.02] flex flex-col"
+              style={{ backgroundColor: portfolioItems[1].color }}
+            >
+              {/* Decorative shape */}
+              <div className="absolute top-8 left-8 w-16 h-16 rounded-full bg-cream/30"></div>
+              
+              <div className="p-8 flex-1 flex flex-col justify-between text-cream">
+                <div>
+                  <div className="text-xs font-mono opacity-70 mb-4">({portfolioItems[1].id})</div>
+                  <h3 className="text-xl font-montserrat font-bold uppercase mb-4 leading-tight">
+                    {portfolioItems[1].title}
+                  </h3>
+                </div>
+                
+                <div>
+                  <p className="text-sm opacity-90 lowercase mb-4 leading-relaxed">
+                    {portfolioItems[1].description}
+                  </p>
+                  <div className="flex items-center text-xs">
+                    <Icon name="Play" size={12} className="mr-2" />
+                    {portfolioItems[1].duration}
+                  </div>
+                </div>
+              </div>
+              
+              <div className="h-32 relative overflow-hidden">
+                <img 
+                  src={portfolioItems[1].image}
+                  alt={portfolioItems[1].title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Third item - Medium with cutout */}
+          <div className="col-span-12 md:col-span-5 relative group cursor-pointer">
+            <div 
+              className="relative h-80 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundColor: portfolioItems[2].color }}
+            >
+              {/* Organic shape cutout */}
+              <div 
+                className="absolute top-4 right-4 w-24 h-32 bg-cream/20 rounded-t-full"
+                style={{ 
+                  clipPath: 'ellipse(50% 60% at 50% 40%)'
+                }}
+              ></div>
+              
+              <img 
+                src={portfolioItems[2].image}
+                alt={portfolioItems[2].title}
+                className="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700 group-hover:opacity-80 group-hover:scale-105"
+              />
+              
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="text-xs font-mono text-cream/70 mb-2">({portfolioItems[2].id})</div>
+                <h3 className="text-lg font-montserrat font-bold uppercase mb-3 text-cream leading-tight">
+                  {portfolioItems[2].title}
+                </h3>
+                <p className="text-sm text-cream/90 lowercase leading-tight mb-3">
+                  {portfolioItems[2].description.substring(0, 80)}...
+                </p>
+                <div className="flex items-center text-xs text-cream/80">
+                  <Icon name="Play" size={12} className="mr-1" />
+                  {portfolioItems[2].duration}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Fourth item - Square with illustration style */}
+          <div className="col-span-12 md:col-span-4 relative group cursor-pointer">
+            <div 
+              className="relative h-80 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundColor: portfolioItems[3].color }}
+            >
+              {/* Abstract decorative element */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 opacity-20">
+                <div className="w-full h-full rounded-full border-2 border-cream"></div>
+                <div className="absolute top-2 left-2 w-16 h-16 rounded-full border border-cream"></div>
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 h-2/3">
+                <img 
+                  src={portfolioItems[3].image}
+                  alt={portfolioItems[3].title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              
+              <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                <div>
+                  <div className="text-xs font-mono text-forest/60 mb-2">({portfolioItems[3].id})</div>
+                  <h3 className="text-lg font-montserrat font-bold uppercase text-forest leading-tight">
+                    {portfolioItems[3].title}
+                  </h3>
+                </div>
+                
+                <div className="bg-black/20 backdrop-blur-sm p-3 rounded">
+                  <p className="text-xs text-cream/90 lowercase leading-tight mb-2">
+                    {portfolioItems[3].description.substring(0, 60)}...
+                  </p>
+                  <div className="flex items-center text-xs text-cream/80">
+                    <Icon name="Play" size={12} className="mr-1" />
+                    {portfolioItems[3].duration}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Fifth item - Wide with text emphasis */}
+          <div className="col-span-12 md:col-span-3 relative group cursor-pointer">
+            <div 
+              className="relative h-80 overflow-hidden transition-all duration-500 hover:scale-[1.02] flex flex-col"
+              style={{ backgroundColor: portfolioItems[4].color }}
+            >
+              <div className="flex-1 p-6 flex flex-col justify-center text-cream">
+                <div className="text-xs font-mono opacity-70 mb-3">({portfolioItems[4].id})</div>
+                <h3 className="text-xl font-montserrat font-bold uppercase mb-4 leading-tight">
+                  {portfolioItems[4].title}
+                </h3>
+                <p className="text-sm opacity-90 lowercase mb-4 leading-relaxed">
+                  {portfolioItems[4].description}
+                </p>
+                <div className="flex items-center text-xs">
+                  <Icon name="Camera" size={12} className="mr-2" />
+                  {portfolioItems[4].duration}
+                </div>
+              </div>
+              
+              <div className="h-20 relative overflow-hidden">
+                <img 
+                  src={portfolioItems[4].image}
+                  alt={portfolioItems[4].title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Sixth item - Final card with special treatment */}
+          <div className="col-span-12 md:col-span-9 relative group cursor-pointer">
+            <div 
+              className="relative h-64 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundColor: portfolioItems[5].color }}
+            >
+              {/* Organic shape overlay */}
+              <div 
+                className="absolute top-0 right-0 w-1/3 h-full bg-cream/10"
+                style={{
+                  clipPath: 'polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                }}
+              ></div>
+              
+              <div className="absolute inset-0 flex">
+                <div className="flex-1 p-8 flex flex-col justify-center">
+                  <div className="text-xs font-mono text-cream/70 mb-3">({portfolioItems[5].id})</div>
+                  <h3 className="text-2xl font-montserrat font-bold uppercase mb-4 text-cream leading-tight">
+                    {portfolioItems[5].title}
+                  </h3>
+                  <p className="text-sm text-cream/90 lowercase leading-relaxed mb-4 max-w-md">
+                    {portfolioItems[5].description}
+                  </p>
+                  <div className="flex items-center text-xs text-cream/80">
+                    <Icon name="Camera" size={12} className="mr-2" />
+                    {portfolioItems[5].duration}
+                  </div>
+                </div>
+                
+                <div className="w-1/2 relative overflow-hidden">
+                  <img 
+                    src={portfolioItems[5].image}
+                    alt={portfolioItems[5].title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        {/* Bottom inspiration text */}
-        <div className="text-center mt-20">
-          <p className="text-lg font-light lowercase text-forest/70 max-w-3xl mx-auto leading-relaxed">
-            каждая папка — отдельная вселенная историй и эмоций, бережно собранная и готовая раскрыться перед вами
-          </p>
+        {/* Bottom section */}
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center space-x-6 bg-white/40 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg">
+            <button 
+              className="flex items-center px-6 py-3 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 font-medium"
+              onClick={() => window.open('https://youtube.com/@azaluk', '_blank')}
+            >
+              <Icon name="ExternalLink" size={16} className="mr-2" />
+              смотреть все работы
+            </button>
+            <button 
+              className="flex items-center px-6 py-3 border border-forest text-forest rounded-full hover:bg-forest hover:text-cream transition-all duration-300 font-medium"
+              onClick={() => window.open('https://t.me/azaluk', '_blank')}
+            >
+              <Icon name="MessageCircle" size={16} className="mr-2" />
+              обсудить проект
+            </button>
+          </div>
         </div>
       </div>
     </section>
