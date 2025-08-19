@@ -39,7 +39,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
       <section id="collaboration" className="py-16 px-4 text-cream" style={{ backgroundColor: '#6b5b4d' }}>
         <div className="container mx-auto max-w-4xl text-center px-0">
           <h2 className="font-montserrat font-bold uppercase my-0 text-3xl" style={{ color: '#f5f0e8' }}>сотрудничество</h2>
-          <p className="text-lg leading-relaxed mb-8 lowercase" style={{ color: '#f5f0e8' }}>
+          <p className="leading-relaxed mb-8 lowercase text-base" style={{ color: '#f5f0e8' }}>
             открыта к тёплым коллаборациям и аккуратным интеграциям — только то, что резонирует с атмосферой канала 
             (slow life, велнесс, творчество, места силы, уютные бренды). форматы: интеграции во влоги, съёмка контента, 
             совместные проекты. напишите, придумаем красиво.
