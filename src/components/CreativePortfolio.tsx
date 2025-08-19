@@ -91,179 +91,94 @@ const CreativePortfolio = () => {
   return (
     <section className="py-20 px-4 bg-cream text-forest">
       <div className="container mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-16">
-          <h2 className="text-6xl font-montserrat font-bold uppercase tracking-tight mb-4">
-            мой творческий<br />портфель
-          </h2>
-          <div className="w-24 h-1 bg-forest"></div>
-        </div>
-
-        {/* Swiss Grid Layout */}
-        <div className="grid grid-cols-12 gap-4 md:gap-6">
-          {/* Large featured item */}
-          <div className="col-span-12 md:col-span-8 lg:col-span-6">
-            <div 
-              className="relative group cursor-pointer h-80 md:h-96 overflow-hidden bg-forest/10 rounded-sm"
-              onMouseEnter={() => setHoveredItem(0)}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <img 
-                src={portfolioItems[0].image}
-                alt={portfolioItems[0].title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              
-              {/* Content overlay */}
-              <div className="absolute bottom-6 left-6 text-white">
-                <div className="text-sm font-mono mb-2 opacity-80">({portfolioItems[0].id})</div>
-                <h3 className="text-2xl font-bold uppercase mb-1">{portfolioItems[0].title}</h3>
-                <p className="text-base opacity-90 lowercase">{portfolioItems[0].subtitle}</p>
-                <div className="flex items-center mt-3 text-sm">
-                  <Icon name={portfolioItems[0].type === 'video' ? 'Play' : 'Camera'} size={16} className="mr-2" />
-                  <span>{portfolioItems[0].duration}</span>
-                  <span className="mx-2">•</span>
-                  <span className="uppercase tracking-wider">{portfolioItems[0].category}</span>
-                </div>
-              </div>
-
-              {/* Hover overlay */}
-              {hoveredItem === 0 && (
-                <div className="absolute inset-0 bg-black/20 transition-opacity duration-300">
-                  <div className="absolute center-center">
-                    <Icon name="Play" size={48} className="text-white/80" />
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Grid of smaller items */}
-          <div className="col-span-12 md:col-span-4 lg:col-span-6 grid grid-cols-2 gap-4 md:gap-6">
-            {portfolioItems.slice(1, 5).map((item, index) => (
+        {/* Uniform Grid Layout with Folder Shapes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioItems.map((item, index) => (
+            <div key={item.id} className="relative">
+              {/* Folder shape container */}
               <div 
-                key={item.id}
-                className="relative group cursor-pointer h-36 md:h-44 overflow-hidden bg-forest/10 rounded-sm"
-                onMouseEnter={() => setHoveredItem(index + 1)}
+                className="relative group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 hover:-rotate-1"
+                onMouseEnter={() => setHoveredItem(index)}
                 onMouseLeave={() => setHoveredItem(null)}
+                style={{
+                  height: '280px',
+                  clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                  backgroundColor: '#a8a693'
+                }}
               >
-                <img 
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                
-                {/* Content */}
-                <div className="absolute bottom-3 left-3 text-white">
-                  <div className="text-xs font-mono mb-1 opacity-70">({item.id})</div>
-                  <h4 className="text-sm font-bold uppercase leading-tight mb-1">{item.title}</h4>
-                  <div className="flex items-center text-xs">
-                    <Icon name={item.type === 'video' ? 'Play' : 'Camera'} size={12} className="mr-1" />
-                    <span>{item.duration}</span>
-                  </div>
-                </div>
-
-                {/* Hover effect */}
-                {hoveredItem === index + 1 && (
-                  <div className="absolute inset-0 bg-black/30 transition-opacity duration-300">
-                    <div className="absolute center-center">
-                      <Icon name={item.type === 'video' ? 'Play' : 'Eye'} size={24} className="text-white/80" />
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom row - varied sizes */}
-          <div className="col-span-12 grid grid-cols-12 gap-4 md:gap-6 mt-4 md:mt-6">
-            {/* Medium item */}
-            <div className="col-span-12 md:col-span-5">
-              <div 
-                className="relative group cursor-pointer h-48 overflow-hidden bg-forest/10 rounded-sm"
-                onMouseEnter={() => setHoveredItem(5)}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                <img 
-                  src={portfolioItems[5].image}
-                  alt={portfolioItems[5].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                
-                <div className="absolute bottom-4 left-4 text-white">
-                  <div className="text-xs font-mono mb-1 opacity-70">({portfolioItems[5].id})</div>
-                  <h4 className="text-lg font-bold uppercase mb-1">{portfolioItems[5].title}</h4>
-                  <p className="text-sm opacity-90 lowercase mb-2">{portfolioItems[5].subtitle}</p>
-                  <div className="flex items-center text-xs">
-                    <Icon name="Play" size={14} className="mr-2" />
-                    <span>{portfolioItems[5].duration}</span>
-                    <span className="mx-2">•</span>
-                    <span className="uppercase">{portfolioItems[5].category}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Two small items */}
-            <div className="col-span-12 md:col-span-7 grid grid-cols-2 gap-4 md:gap-6">
-              {portfolioItems.slice(6, 8).map((item, index) => (
+                {/* Folder tab */}
                 <div 
-                  key={item.id}
-                  className="relative group cursor-pointer h-48 overflow-hidden bg-forest/10 rounded-sm"
-                  onMouseEnter={() => setHoveredItem(index + 6)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                >
+                  className="absolute top-0 left-0"
+                  style={{
+                    width: '30%',
+                    height: '15%',
+                    backgroundColor: '#8b7f6b',
+                    clipPath: 'polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%)'
+                  }}
+                ></div>
+
+                {/* Image container */}
+                <div className="relative w-full h-full overflow-hidden">
                   <img 
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    style={{
+                      clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                   
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <div className="text-xs font-mono mb-1 opacity-70">({item.id})</div>
-                    <h4 className="text-base font-bold uppercase leading-tight mb-1">{item.title}</h4>
-                    <p className="text-xs opacity-90 lowercase mb-2">{item.subtitle}</p>
+                  {/* Gradient overlay */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
+                    style={{
+                      clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                    }}
+                  ></div>
+
+                  {/* Content overlay */}
+                  <div className="absolute bottom-6 left-6 text-white max-w-[70%]">
+                    <div className="text-xs font-mono mb-2 opacity-80">({item.id})</div>
+                    <h3 className="text-lg font-bold uppercase mb-1 leading-tight">{item.title}</h3>
+                    <p className="text-sm opacity-90 lowercase mb-3 line-clamp-2">{item.subtitle}</p>
                     <div className="flex items-center text-xs">
-                      <Icon name={item.type === 'video' ? 'Play' : 'Camera'} size={12} className="mr-1" />
+                      <Icon name={item.type === 'video' ? 'Play' : 'Camera'} size={14} className="mr-2" />
                       <span>{item.duration}</span>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Last item - wide */}
-          <div className="col-span-12 mt-4 md:mt-6">
-            <div 
-              className="relative group cursor-pointer h-64 overflow-hidden bg-forest/10 rounded-sm"
-              onMouseEnter={() => setHoveredItem(8)}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <img 
-                src={portfolioItems[8].image}
-                alt={portfolioItems[8].title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent"></div>
-              
-              <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white max-w-md">
-                <div className="text-sm font-mono mb-2 opacity-80">({portfolioItems[8].id})</div>
-                <h3 className="text-3xl font-bold uppercase mb-2">{portfolioItems[8].title}</h3>
-                <p className="text-lg opacity-90 lowercase mb-4">{portfolioItems[8].subtitle}</p>
-                <div className="flex items-center text-sm">
-                  <Icon name="Play" size={16} className="mr-2" />
-                  <span>{portfolioItems[8].duration}</span>
-                  <span className="mx-3">•</span>
-                  <span className="uppercase tracking-wider">{portfolioItems[8].category}</span>
+                  {/* Hover overlay */}
+                  {hoveredItem === index && (
+                    <div 
+                      className="absolute inset-0 bg-black/30 transition-opacity duration-300"
+                      style={{
+                        clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                      }}
+                    >
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <Icon name={item.type === 'video' ? 'Play' : 'Eye'} size={32} className="text-white/80" />
+                      </div>
+                    </div>
+                  )}
                 </div>
+
+                {/* Folder edge shadow */}
+                <div 
+                  className="absolute top-0 left-0 w-full h-full pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 15%)',
+                    clipPath: 'polygon(0% 15%, 25% 15%, 30% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                  }}
+                ></div>
+              </div>
+
+              {/* Label below folder */}
+              <div className="mt-4 text-center">
+                <div className="text-sm font-mono text-forest/60 mb-1">({item.id})</div>
+                <h4 className="text-base font-bold uppercase text-forest">{item.category}</h4>
               </div>
             </div>
-          </div>
+          ))}
         </div>
 
         {/* Bottom text */}
