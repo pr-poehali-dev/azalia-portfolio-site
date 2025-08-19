@@ -74,7 +74,7 @@ const CreativePortfolio = () => {
         
         {/* Title and navigation */}
         <div className="text-center mb-2">
-          <h2 className="text-xl font-handwriting text-forest mb-1">— Азалия @azaluk</h2>
+
           
           {/* Navigation arrows */}
           <div className="flex justify-between items-center mb-2">
