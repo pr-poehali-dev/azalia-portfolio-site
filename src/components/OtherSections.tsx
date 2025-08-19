@@ -235,7 +235,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                   key={index}
                   onClick={() => setCurrentReview(index)}
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    index === currentReview ? 'bg-sand w-4' : 'bg-sand/30'
+                    index === currentReview ? 'bg-cream w-4' : 'bg-cream/40'
                   }`}
                 />
               ))}
@@ -244,32 +244,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
         </div>
       </section>
 
-      {/* Support Section */}
-      <section id="support" className="py-16 px-4 bg-cream text-forest">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase">поддержать проект</h2>
-          <p className="text-lg leading-relaxed mb-8 text-muted-foreground lowercase">
-            если мои видео греют душу — можно "угостить меня кофе" ☕️. 
-            ваша поддержка превращается в новые тёплые истории.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-            >
-              boosty
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-            >
-              vk донаты
-            </Button>
-          </div>
-        </div>
-      </section>
+
 
       {/* Contacts Section */}
       <section id="contacts" className="py-16 px-4">
