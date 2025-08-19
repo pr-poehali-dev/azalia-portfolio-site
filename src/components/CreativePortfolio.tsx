@@ -150,14 +150,11 @@ const CreativePortfolio = () => {
 
         {/* Bottom section */}
         <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-4 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-forest/20">
+          <div className="inline-flex items-center space-x-4 backdrop-blur-sm rounded-full shadow-lg border border-forest/20 px-0 py-0 bg-amber-50">
             <button 
               className="flex items-center px-4 py-2 bg-forest text-cream rounded-full hover:bg-forest/80 transition-all duration-300 font-medium text-sm"
               onClick={() => window.open('https://youtube.com/@azaluk', '_blank')}
-            >
-              <Icon name="ExternalLink" size={14} className="mr-2" />
-              смотреть все работы
-            </button>
+            >все работы</button>
             <button 
               className="flex items-center px-4 py-2 border border-forest text-forest rounded-full hover:bg-forest hover:text-cream transition-all duration-300 font-medium text-sm"
               onClick={() => window.open('https://t.me/azaluk', '_blank')}
