@@ -94,101 +94,115 @@ const CreativePortfolio = () => {
   };
 
   return (
-    <section className="py-12 px-4 bg-cream">
-      <div className="container mx-auto max-w-2xl">
+    <section className="py-12 bg-cream">
+      {/* Title section with padding */}
+      <div className="text-center mb-12 px-6">
+        <h2 className="text-3xl font-montserrat font-bold uppercase mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+          Избранные работы
+        </h2>
+        <p className="text-gray-600 lowercase">
+          коллекция проектов, созданных с душой и вниманием к деталям
+        </p>
+      </div>
+
+      {/* Full-width carousel */}
+      <div className="relative w-full">
+        {/* Desktop navigation arrows */}
+        <button 
+          onClick={prevSlide}
+          className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+        >
+          <Icon name="ChevronLeft" size={20} />
+        </button>
+        <button 
+          onClick={nextSlide}
+          className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+        >
+          <Icon name="ChevronRight" size={20} />
+        </button>
         
+        <div className="flex items-center w-full overflow-hidden">
+          {/* Left preview - edge positioned */}
+          <div className="flex-shrink-0 w-20 md:w-32 opacity-40 scale-75 transition-all duration-500 -ml-10 md:-ml-16">
+            {currentIndex > 0 && (
+              <div className="relative h-32 md:h-64 overflow-hidden rounded-r-xl">
+                <img 
+                  src={portfolioItems[currentIndex - 1].image} 
+                  alt={portfolioItems[currentIndex - 1].title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+          </div>
 
-
-        {/* Carousel with peek effect */}
-        <div className="relative overflow-hidden">
-          {/* Desktop navigation arrows */}
-          <button 
-            onClick={prevSlide}
-            className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+          {/* Main centered image - takes remaining space */}
+          <div 
+            className="flex-1 px-4"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            <Icon name="ChevronLeft" size={20} />
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
-          >
-            <Icon name="ChevronRight" size={20} />
-          </button>
-          
-          <div className="px-8 md:px-16">
-            <div 
-              className="flex transition-transform duration-500 ease-out touch-pan-x"
-              style={{
-                transform: `translateX(calc(-${currentIndex * 100}% + ${currentIndex * 32}px))`
-              }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {portfolioItems.map((item, index) => (
-                <div 
-                  key={item.id} 
-                  className={`flex-shrink-0 px-2 transition-all duration-500 ${
-                    index === currentIndex 
-                      ? 'w-full opacity-100 scale-100' 
-                      : 'w-4/5 opacity-60 scale-95'
-                  }`}
-                >
-                  <div className="relative group cursor-pointer">
-                    <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      
-                      {/* Type indicator */}
-                      {item.type === 'video' && (
-                        <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 text-white text-sm flex items-center">
-                          <Icon name="Play" size={16} className="mr-2" />
-                          {item.duration}
-                        </div>
-                      )}
-                      
-                      {/* Content overlay - только для активного слайда */}
-                      {index === currentIndex && (
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                          <div className="text-xs font-mono opacity-70 mb-2">({item.id})</div>
-                          <h3 className="text-xl font-montserrat font-bold uppercase mb-3 leading-tight">
-                            {item.title}
-                          </h3>
-                          <p className="text-sm opacity-90 lowercase leading-relaxed">
-                            {item.description.length > 150 
-                              ? `${item.description.substring(0, 150)}...` 
-                              : item.description}
-                          </p>
-                        </div>
-                      )}
-                    </div>
+            <div className="relative group cursor-pointer max-w-4xl mx-auto">
+              <div className="relative w-full h-80 md:h-96 overflow-hidden rounded-2xl shadow-xl bg-gray-100">
+                <img 
+                  src={portfolioItems[currentIndex].image} 
+                  alt={portfolioItems[currentIndex].title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                
+                {/* Type indicator */}
+                {portfolioItems[currentIndex].type === 'video' && (
+                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 text-white text-sm flex items-center">
+                    <Icon name="Play" size={16} className="mr-2" />
+                    {portfolioItems[currentIndex].duration}
                   </div>
+                )}
+                
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
+                  <div className="text-xs font-mono opacity-70 mb-2">({portfolioItems[currentIndex].id})</div>
+                  <h3 className="text-lg md:text-xl font-montserrat font-bold uppercase mb-2 md:mb-3 leading-tight">
+                    {portfolioItems[currentIndex].title}
+                  </h3>
+                  <p className="text-sm opacity-90 lowercase leading-relaxed">
+                    {portfolioItems[currentIndex].description.length > 150 
+                      ? `${portfolioItems[currentIndex].description.substring(0, 150)}...` 
+                      : portfolioItems[currentIndex].description}
+                  </p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
-          
-          {/* Dots indicator */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {portfolioItems.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'bg-forest w-6' : 'bg-forest/30'
-                }`}
-              />
-            ))}
+
+          {/* Right preview - edge positioned */}
+          <div className="flex-shrink-0 w-20 md:w-32 opacity-40 scale-75 transition-all duration-500 -mr-10 md:-mr-16">
+            {currentIndex < portfolioItems.length - 1 && (
+              <div className="relative h-32 md:h-64 overflow-hidden rounded-l-xl">
+                <img 
+                  src={portfolioItems[currentIndex + 1].image} 
+                  alt={portfolioItems[currentIndex + 1].title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
         </div>
-
-
+        
+        {/* Dots indicator */}
+        <div className="flex justify-center mt-6 space-x-2 px-6">
+          {portfolioItems.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex ? 'bg-forest w-6' : 'bg-forest/30'
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
