@@ -164,7 +164,7 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
                   key={index}
                   onClick={() => setCurrentReview(index * 3)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    Math.floor(currentReview / 3) === index ? 'bg-accent w-6' : 'bg-accent/30'
+                    Math.floor(currentReview / 3) === index ? 'bg-sand w-6' : 'bg-sand/30'
                   }`}
                 />
               ))}
