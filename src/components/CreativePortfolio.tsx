@@ -61,236 +61,107 @@ const CreativePortfolio = () => {
   return (
     <section className="py-20 px-4 bg-cream text-forest">
       <div className="container mx-auto max-w-7xl">
-        {/* Collage Grid Layout */}
-        <div className="grid grid-cols-12 gap-6 auto-rows-auto">
+        {/* Uniform Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           
-          {/* First item - Large horizontal */}
-          <div className="col-span-12 md:col-span-8 relative group cursor-pointer">
-            <div 
-              className="relative h-96 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-              style={{ backgroundColor: portfolioItems[0].color }}
-            >
-              {/* Background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="w-full h-full" style={{
-                  backgroundImage: `radial-gradient(circle at 20% 80%, ${portfolioItems[0].color} 0%, transparent 50%),
-                                   radial-gradient(circle at 80% 20%, ${portfolioItems[0].color} 0%, transparent 50%)`
-                }}></div>
-              </div>
-              
-              {/* Image */}
-              <img 
-                src={portfolioItems[0].image}
-                alt={portfolioItems[0].title}
-                className="absolute right-0 top-0 w-3/5 h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              
-              {/* Content overlay */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                <div className="flex justify-between items-start">
-                  <div className="text-xs font-mono text-forest/60">({portfolioItems[0].id})</div>
-                  <div className="flex items-center bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white">
-                    <Icon name="Play" size={12} className="mr-1" />
-                    {portfolioItems[0].duration}
-                  </div>
-                </div>
-                
-                <div className="max-w-md">
-                  <h3 className="text-2xl font-montserrat font-bold uppercase mb-4 text-forest leading-tight">
-                    {portfolioItems[0].title}
-                  </h3>
-                  <p className="text-sm text-forest/80 lowercase leading-relaxed">
-                    {portfolioItems[0].description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Second item - Vertical */}
-          <div className="col-span-12 md:col-span-4 relative group cursor-pointer">
-            <div 
-              className="relative h-96 overflow-hidden transition-all duration-500 hover:scale-[1.02] flex flex-col"
-              style={{ backgroundColor: portfolioItems[1].color }}
-            >
-              {/* Decorative shape */}
-              <div className="absolute top-8 left-8 w-16 h-16 rounded-full bg-cream/30"></div>
-              
-              <div className="p-8 flex-1 flex flex-col justify-between text-cream">
-                <div>
-                  <div className="text-xs font-mono opacity-70 mb-4">({portfolioItems[1].id})</div>
-                  <h3 className="text-xl font-montserrat font-bold uppercase mb-4 leading-tight">
-                    {portfolioItems[1].title}
-                  </h3>
-                </div>
-                
-                <div>
-                  <p className="text-sm opacity-90 lowercase mb-4 leading-relaxed">
-                    {portfolioItems[1].description}
-                  </p>
-                  <div className="flex items-center text-xs">
-                    <Icon name="Play" size={12} className="mr-2" />
-                    {portfolioItems[1].duration}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="h-32 relative overflow-hidden">
-                <img 
-                  src={portfolioItems[1].image}
-                  alt={portfolioItems[1].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Third item - Medium with cutout */}
-          <div className="col-span-12 md:col-span-5 relative group cursor-pointer">
-            <div 
-              className="relative h-80 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-              style={{ backgroundColor: portfolioItems[2].color }}
-            >
-              {/* Organic shape cutout */}
+          {portfolioItems.map((item, index) => (
+            <div key={item.id} className="relative group cursor-pointer">
               <div 
-                className="absolute top-4 right-4 w-24 h-32 bg-cream/20 rounded-t-full"
-                style={{ 
-                  clipPath: 'ellipse(50% 60% at 50% 40%)'
-                }}
-              ></div>
-              
-              <img 
-                src={portfolioItems[2].image}
-                alt={portfolioItems[2].title}
-                className="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700 group-hover:opacity-80 group-hover:scale-105"
-              />
-              
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <div className="text-xs font-mono text-cream/70 mb-2">({portfolioItems[2].id})</div>
-                <h3 className="text-lg font-montserrat font-bold uppercase mb-3 text-cream leading-tight">
-                  {portfolioItems[2].title}
-                </h3>
-                <p className="text-sm text-cream/90 lowercase leading-tight mb-3">
-                  {portfolioItems[2].description.substring(0, 80)}...
-                </p>
-                <div className="flex items-center text-xs text-cream/80">
-                  <Icon name="Play" size={12} className="mr-1" />
-                  {portfolioItems[2].duration}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Fourth item - Square with illustration style */}
-          <div className="col-span-12 md:col-span-4 relative group cursor-pointer">
-            <div 
-              className="relative h-80 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-              style={{ backgroundColor: portfolioItems[3].color }}
-            >
-              {/* Abstract decorative element */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 opacity-20">
-                <div className="w-full h-full rounded-full border-2 border-cream"></div>
-                <div className="absolute top-2 left-2 w-16 h-16 rounded-full border border-cream"></div>
-              </div>
-              
-              <div className="absolute bottom-0 left-0 right-0 h-2/3">
-                <img 
-                  src={portfolioItems[3].image}
-                  alt={portfolioItems[3].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              
-              <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                <div>
-                  <div className="text-xs font-mono text-forest/60 mb-2">({portfolioItems[3].id})</div>
-                  <h3 className="text-lg font-montserrat font-bold uppercase text-forest leading-tight">
-                    {portfolioItems[3].title}
-                  </h3>
-                </div>
-                
-                <div className="bg-black/20 backdrop-blur-sm p-3 rounded">
-                  <p className="text-xs text-cream/90 lowercase leading-tight mb-2">
-                    {portfolioItems[3].description.substring(0, 60)}...
-                  </p>
-                  <div className="flex items-center text-xs text-cream/80">
-                    <Icon name="Play" size={12} className="mr-1" />
-                    {portfolioItems[3].duration}
+                className="relative h-64 overflow-hidden transition-all duration-500 hover:scale-[1.02] rounded-lg"
+                style={{ backgroundColor: item.color }}
+              >
+                {/* Background pattern for some variety */}
+                {index % 2 === 0 && (
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="w-full h-full" style={{
+                      backgroundImage: `radial-gradient(circle at 30% 70%, ${item.color} 0%, transparent 50%)`
+                    }}></div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Fifth item - Wide with text emphasis */}
-          <div className="col-span-12 md:col-span-3 relative group cursor-pointer">
-            <div 
-              className="relative h-80 overflow-hidden transition-all duration-500 hover:scale-[1.02] flex flex-col"
-              style={{ backgroundColor: portfolioItems[4].color }}
-            >
-              <div className="flex-1 p-6 flex flex-col justify-center text-cream">
-                <div className="text-xs font-mono opacity-70 mb-3">({portfolioItems[4].id})</div>
-                <h3 className="text-xl font-montserrat font-bold uppercase mb-4 leading-tight">
-                  {portfolioItems[4].title}
-                </h3>
-                <p className="text-sm opacity-90 lowercase mb-4 leading-relaxed">
-                  {portfolioItems[4].description}
-                </p>
-                <div className="flex items-center text-xs">
-                  <Icon name="Camera" size={12} className="mr-2" />
-                  {portfolioItems[4].duration}
-                </div>
-              </div>
-              
-              <div className="h-20 relative overflow-hidden">
-                <img 
-                  src={portfolioItems[4].image}
-                  alt={portfolioItems[4].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Sixth item - Final card with special treatment */}
-          <div className="col-span-12 md:col-span-9 relative group cursor-pointer">
-            <div 
-              className="relative h-64 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-              style={{ backgroundColor: portfolioItems[5].color }}
-            >
-              {/* Organic shape overlay */}
-              <div 
-                className="absolute top-0 right-0 w-1/3 h-full bg-cream/10"
-                style={{
-                  clipPath: 'polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                }}
-              ></div>
-              
-              <div className="absolute inset-0 flex">
-                <div className="flex-1 p-8 flex flex-col justify-center">
-                  <div className="text-xs font-mono text-cream/70 mb-3">({portfolioItems[5].id})</div>
-                  <h3 className="text-2xl font-montserrat font-bold uppercase mb-4 text-cream leading-tight">
-                    {portfolioItems[5].title}
-                  </h3>
-                  <p className="text-sm text-cream/90 lowercase leading-relaxed mb-4 max-w-md">
-                    {portfolioItems[5].description}
-                  </p>
-                  <div className="flex items-center text-xs text-cream/80">
-                    <Icon name="Camera" size={12} className="mr-2" />
-                    {portfolioItems[5].duration}
-                  </div>
-                </div>
+                )}
                 
-                <div className="w-1/2 relative overflow-hidden">
+                {/* Decorative elements */}
+                {index % 3 === 1 && (
+                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-cream/20"></div>
+                )}
+                
+                {index % 3 === 2 && (
+                  <div 
+                    className="absolute top-2 left-2 w-12 h-16 bg-cream/10"
+                    style={{ 
+                      clipPath: 'ellipse(50% 60% at 50% 40%)',
+                      borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
+                    }}
+                  ></div>
+                )}
+                
+                {/* Image placement varies by layout type */}
+                {index % 4 === 0 && (
                   <img 
-                    src={portfolioItems[5].image}
-                    alt={portfolioItems[5].title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute right-0 top-0 w-2/3 h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                )}
+                
+                {index % 4 === 1 && (
+                  <img 
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute bottom-0 left-0 right-0 h-1/2 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
+                
+                {index % 4 === 2 && (
+                  <img 
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 transition-all duration-700 group-hover:opacity-70 group-hover:scale-105"
+                  />
+                )}
+                
+                {index % 4 === 3 && (
+                  <img 
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute top-0 left-0 w-full h-2/3 object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
+                
+                {/* Content overlay */}
+                <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <div className="text-xs font-mono text-forest/60 bg-cream/80 px-2 py-1 rounded">
+                      ({item.id})
+                    </div>
+                    <div className="flex items-center bg-black/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-white">
+                      <Icon 
+                        name={item.type === 'video' ? 'Play' : 'Camera'} 
+                        size={10} 
+                        className="mr-1" 
+                      />
+                      {item.duration}
+                    </div>
+                  </div>
+                  
+                  <div className={`${index % 4 === 2 ? 'text-cream' : 'text-forest'}`}>
+                    <h3 className="text-sm sm:text-base font-montserrat font-bold uppercase mb-2 leading-tight">
+                      {item.title}
+                    </h3>
+                    <p className={`text-xs sm:text-sm lowercase leading-tight ${
+                      index % 4 === 2 ? 'text-cream/90' : 'text-forest/80'
+                    }`}>
+                      {item.description.length > 85 
+                        ? `${item.description.substring(0, 85)}...` 
+                        : item.description}
+                    </p>
+                  </div>
                 </div>
+                
+                {/* Hover overlay for better text visibility */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
               </div>
             </div>
-          </div>
+          ))}
 
         </div>
 
