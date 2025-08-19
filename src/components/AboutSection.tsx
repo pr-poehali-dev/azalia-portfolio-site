@@ -63,15 +63,16 @@ const AboutSection = ({ filmStrip }: AboutSectionProps) => {
 
             {/* Desktop layout */}
             <div className="hidden md:block">
-              <h2 className="text-4xl font-montserrat font-bold mb-6 text-accent uppercase">обо мне</h2>
+              <h2 className="text-4xl font-caveat font-bold mb-6 text-accent">привет, я Азалия!</h2>
               <div className="prose prose-lg">
                 <p className="text-foreground/90 leading-relaxed lowercase">
-                  привет! я Азалия — снимаю жизнь такой, как она есть: тёплой, честной, красивой в мелочах. 
-                  люблю атмосферу ретритов, праздников, семейных встреч и тихих будней.
+                  я мастер находить красоту в самых простых моментах жизни и передавать их через свои кадры.
                 </p>
                 <p className="text-foreground/90 leading-relaxed mt-4 lowercase">
-                  делаю живые фотографии и видео без тяжёлой обработки, отдаю быстро и бережно. 
-                  здесь вы поймёте мой стиль и сразу увидите, подходит ли он вам.
+                  больше 3-х лет я создаю атмосферные видео на youtube, участвую в мероприятиях в качестве лайф-фотографа и помогаю сохранить теплые воспоминания и эмоции о важных событиях нашей жизни.
+                </p>
+                <p className="text-foreground/90 leading-relaxed mt-4 lowercase">
+                  делаю живые фотографии и видео без тяжёлой обработки, отдаю быстро и бережно. здесь вы поймёте мой стиль и сразу увидите, подходит ли он вам.
                 </p>
               </div>
               <div className="mt-6">
