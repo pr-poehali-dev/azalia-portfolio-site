@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import PortfolioSection from './PortfolioSection';
 
 interface OtherSectionsProps {
   filmStrip: string[];
@@ -52,6 +53,9 @@ const OtherSections = ({ filmStrip }: OtherSectionsProps) => {
           </Button>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <PortfolioSection />
 
       {/* Reviews Section */}
       <section id="reviews" className="py-16 px-4">
